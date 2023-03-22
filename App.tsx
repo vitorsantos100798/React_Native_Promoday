@@ -5,7 +5,6 @@ const App = () => {
   return (
     <>
       <View
-        // eslint-disable-next-line react-native/no-inline-styles
         style={{
           display: 'flex',
           alignItems: 'center',
