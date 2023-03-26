@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image, View, Text} from 'react-native';
+import {Image, View, Text, TouchableOpacity} from 'react-native';
 import {styles} from './styles';
 import {Input} from '../../components/input/input';
 function Login() {
@@ -15,6 +15,11 @@ function Login() {
         Descontos incríveis para você!
       </Text>
       <Input />
+      <Input />
+      <TouchableOpacity style={styles.containerButton}>
+        <Text style={styles.textButton}>Entrar</Text>
+      </TouchableOpacity>
+      <Text>Crie uma conta grátis</Text>
     </View>
   );
 }

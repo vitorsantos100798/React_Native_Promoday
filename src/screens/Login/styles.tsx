@@ -5,4 +5,19 @@ export const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'white',
   },
+  containerButton: {
+    backgroundColor: '#DB3026',
+    height: 60,
+    width: 246,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 50,
+  },
+  textButton: {
+    color: 'white',
+    fontWeight: 'bold',
+    fontFamily: 'poppins',
+    fontSize: 24,
+  },
 });
