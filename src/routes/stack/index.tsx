@@ -13,7 +13,7 @@ const Stack = createNativeStackNavigator();
 function Routes() {
   return (
     <ContainerNavigation>
-      <Stack.Navigator initialRouteName="registerPromotion">
+      <Stack.Navigator initialRouteName="splash">
         <Stack.Screen
           name="login"
           component={Login}
