@@ -34,6 +34,7 @@ function Routes() {
           component={SignUp}
           options={{
             title: '',
+            headerShown: false,
             headerTransparent: true,
           }}
         />
