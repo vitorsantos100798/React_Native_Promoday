@@ -1,10 +1,8 @@
 import React from 'react';
 import {Text, TouchableOpacity, View, Image} from 'react-native';
+import {NavigateScreenProps} from '../../types/NavigateScreenProps.ts';
 import styles from './styles';
-type LoginScreenProps = {
-  navigation: any;
-};
-function SucessRegistration({navigation}: LoginScreenProps) {
+function SucessRegistration({navigation}: NavigateScreenProps) {
   const navigateLogin = () => {
     navigation.navigate('login');
   };

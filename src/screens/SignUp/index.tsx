@@ -11,12 +11,10 @@ import {
   BackHandler,
 } from 'react-native';
 import {InputLine} from '../../components/InputLine';
+import {NavigateScreenProps} from '../../types/NavigateScreenProps.ts';
 import {styles} from './styles';
-type LoginScreenProps = {
-  navigation: any;
-};
 
-export function SignUp({navigation}: LoginScreenProps) {
+export function SignUp({navigation}: NavigateScreenProps) {
   useFocusEffect(
     React.useCallback(() => {
       const onBackPress = () => {
@@ -37,7 +35,7 @@ export function SignUp({navigation}: LoginScreenProps) {
     navigation.navigate('login');
   };
   const navigationoSucess = () => {
-    navigation.navigate('SucessRegistration');
+    navigation.navigate('sucessRegistration');
   };
 
   return (

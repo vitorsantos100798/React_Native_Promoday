@@ -5,13 +5,14 @@ import Login from '../../screens/Login';
 import Splash from '../../screens/Splash';
 import {SignUp} from '../../screens/SignUp';
 import SucessRegistration from '../../screens/SucessRegistration';
+import Profile from '../../screens/Profile';
 
 const Stack = createNativeStackNavigator();
 
 function Routes() {
   return (
     <ContainerNavigation>
-      <Stack.Navigator initialRouteName="splash">
+      <Stack.Navigator initialRouteName="profile">
         <Stack.Screen
           name="login"
           component={Login}
@@ -40,8 +41,17 @@ function Routes() {
           }}
         />
         <Stack.Screen
-          name="SucessRegistration"
+          name="sucessRegistration"
           component={SucessRegistration}
+          options={{
+            title: '',
+            headerShown: false,
+            headerTransparent: true,
+          }}
+        />
+        <Stack.Screen
+          name="profile"
+          component={Profile}
           options={{
             title: '',
             headerShown: false,

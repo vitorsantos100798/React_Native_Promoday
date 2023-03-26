@@ -1,4 +1,5 @@
 import React from 'react';
+import {NavigateScreenProps} from '../../types/NavigateScreenProps.ts';
 import {
   Image,
   View,
@@ -12,11 +13,7 @@ import {styles} from './styles';
 import {Input} from '../../components/input/input';
 import {useFocusEffect} from '@react-navigation/native';
 
-type LoginScreenProps = {
-  navigation: any;
-};
-
-function Login({navigation}: LoginScreenProps) {
+function Login({navigation}: NavigateScreenProps) {
   useFocusEffect(
     React.useCallback(() => {
       const onBackPress = () => {
