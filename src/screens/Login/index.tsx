@@ -10,7 +10,7 @@ function Login() {
       </View>
       <Text
         style={{
-          fontFamily: 'arial',
+          fontFamily: 'Poppins-Bold',
         }}>
         Descontos incríveis para você!
       </Text>
