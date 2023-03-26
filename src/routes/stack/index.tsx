@@ -4,6 +4,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Login from '../../screens/Login';
 import Splash from '../../screens/Splash';
 import {SignUp} from '../../screens/SignUp';
+import SucessRegistration from '../../screens/SucessRegistration';
 
 const Stack = createNativeStackNavigator();
 
@@ -32,6 +33,15 @@ function Routes() {
         <Stack.Screen
           name="signup"
           component={SignUp}
+          options={{
+            title: '',
+            headerShown: false,
+            headerTransparent: true,
+          }}
+        />
+        <Stack.Screen
+          name="SucessRegistration"
+          component={SucessRegistration}
           options={{
             title: '',
             headerShown: false,

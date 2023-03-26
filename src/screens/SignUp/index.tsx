@@ -33,9 +33,13 @@ export function SignUp({navigation}: LoginScreenProps) {
         BackHandler.removeEventListener('hardwareBackPress', onBackPress);
     }, []),
   );
-  const navigationofSignUp = () => {
+  const navigationSignUp = () => {
     navigation.navigate('login');
   };
+  const navigationoSucess = () => {
+    navigation.navigate('SucessRegistration');
+  };
+
   return (
     <KeyboardAvoidingView
       style={styles.container}
@@ -53,12 +57,15 @@ export function SignUp({navigation}: LoginScreenProps) {
       <InputLine placeholder="Email" />
       <InputLine placeholder="Cidade" />
       <View style={styles.buttonContainer}>
-        <TouchableOpacity activeOpacity={0.8} style={styles.button}>
+        <TouchableOpacity
+          onPress={navigationoSucess}
+          activeOpacity={0.8}
+          style={styles.button}>
           <Text style={styles.buttonText}>Criar</Text>
         </TouchableOpacity>
       </View>
       <View style={styles.signupContainer}>
-        <TouchableOpacity onPress={navigationofSignUp}>
+        <TouchableOpacity onPress={navigationSignUp}>
           <Text style={styles.signupText}>
             Você tem uma conta ?{' '}
             <Text style={styles.signupTextIntern}>entrar</Text>
