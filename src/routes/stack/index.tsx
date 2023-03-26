@@ -6,13 +6,14 @@ import Splash from '../../screens/Splash';
 import {SignUp} from '../../screens/SignUp';
 import SucessRegistration from '../../screens/SucessRegistration';
 import Profile from '../../screens/Profile';
+import RegisterPromotion from '../../screens/RegisterPromotion';
 
 const Stack = createNativeStackNavigator();
 
 function Routes() {
   return (
     <ContainerNavigation>
-      <Stack.Navigator initialRouteName="profile">
+      <Stack.Navigator initialRouteName="registerPromotion">
         <Stack.Screen
           name="login"
           component={Login}
@@ -52,6 +53,15 @@ function Routes() {
         <Stack.Screen
           name="profile"
           component={Profile}
+          options={{
+            title: '',
+            headerShown: false,
+            headerTransparent: true,
+          }}
+        />
+        <Stack.Screen
+          name="registerPromotion"
+          component={RegisterPromotion}
           options={{
             title: '',
             headerShown: false,
