@@ -47,6 +47,6 @@ export const styles = StyleSheet.create({
   },
   signupText: {
     fontFamily: 'Poppins-Bold',
-    color: '#DB3026',
+    color: '#00000090',
   },
 });
