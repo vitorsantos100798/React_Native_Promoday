@@ -1,8 +1,7 @@
 import React from 'react';
-import {Text, View} from 'react-native';
-import Login from './src/screens/Login';
+import Routes from './src/routes/stack';
 const App = () => {
-  return <Login />;
+  return <Routes />;
 };
 
 export default App;

@@ -4,7 +4,7 @@ import {Text, View} from 'react-native';
 function Login() {
   return (
     <View>
-      <Text>hellou word</Text>
+      <Text>teste</Text>
     </View>
   );
 }
