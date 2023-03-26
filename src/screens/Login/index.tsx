@@ -34,6 +34,9 @@ function Login({navigation}: NavigateScreenProps) {
   const navigationofSignUp = () => {
     navigation.navigate('signup');
   };
+  const navigationoFeed = () => {
+    navigation.navigate('feed');
+  };
   return (
     <KeyboardAvoidingView
       style={styles.container}
@@ -50,7 +53,10 @@ function Login({navigation}: NavigateScreenProps) {
       <Input placeholder="Email" />
       <Input placeholder="Senha" />
       <View style={styles.buttonContainer}>
-        <TouchableOpacity activeOpacity={0.8} style={styles.button}>
+        <TouchableOpacity
+          onPress={navigationoFeed}
+          activeOpacity={0.8}
+          style={styles.button}>
           <Text style={styles.buttonText}>Entrar</Text>
         </TouchableOpacity>
       </View>
