@@ -17,6 +17,7 @@ function Routes() {
             title: '',
             headerTransparent: true,
             headerShown: false,
+            animation: 'none',
           }}
         />
         <Stack.Screen
