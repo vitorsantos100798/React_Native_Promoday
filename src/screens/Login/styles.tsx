@@ -5,19 +5,48 @@ export const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'white',
   },
-  containerButton: {
+  logoContainer: {
+    alignItems: 'center',
+    marginTop: '20%',
+  },
+  logo: {
+    width: 200,
+    height: 200,
+  },
+  titleContainer: {
+    alignItems: 'center',
+    marginTop: 40,
+  },
+  title: {
+    fontFamily: 'Poppins-Medium',
+    color: '#DB3026',
+    fontSize: 20,
+  },
+  buttonContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 40,
+  },
+  button: {
     backgroundColor: '#DB3026',
     height: 60,
     width: 246,
-    display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 50,
   },
-  textButton: {
+  buttonText: {
     color: 'white',
-    fontFamily: 'Poppins-Bold',
-    fontSize: 22,
+    fontFamily: 'Poppins-Medium',
+    fontSize: 20,
     letterSpacing: 1,
+  },
+  signupContainer: {
+    alignItems: 'center',
+    marginTop: 20,
+  },
+  signupText: {
+    fontFamily: 'Poppins-Bold',
+    color: '#DB3026',
   },
 });

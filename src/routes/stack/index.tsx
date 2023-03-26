@@ -3,6 +3,7 @@ import ContainerNavigation from '..';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Login from '../../screens/Login';
 import Splash from '../../screens/Splash';
+import {SignUp} from '../../screens/SignUp';
 
 const Stack = createNativeStackNavigator();
 
@@ -23,6 +24,14 @@ function Routes() {
         <Stack.Screen
           name="splash"
           component={Splash}
+          options={{
+            title: '',
+            headerTransparent: true,
+          }}
+        />
+        <Stack.Screen
+          name="signup"
+          component={SignUp}
           options={{
             title: '',
             headerTransparent: true,

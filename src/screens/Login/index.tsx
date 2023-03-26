@@ -1,16 +1,21 @@
 import React from 'react';
-import {Image, View, Text, TouchableOpacity, BackHandler} from 'react-native';
+import {
+  Image,
+  View,
+  Text,
+  TouchableOpacity,
+  KeyboardAvoidingView,
+  Platform,
+  BackHandler,
+} from 'react-native';
 import {styles} from './styles';
 import {Input} from '../../components/input/input';
-import {
-  ParamListBase,
-  RouteProp,
-  useFocusEffect,
-} from '@react-navigation/native';
+import {useFocusEffect} from '@react-navigation/native';
+
 type LoginScreenProps = {
   navigation: any;
-  route: RouteProp<ParamListBase, 'login'>;
 };
+
 function Login({navigation}: LoginScreenProps) {
   useFocusEffect(
     React.useCallback(() => {
@@ -28,68 +33,36 @@ function Login({navigation}: LoginScreenProps) {
         BackHandler.removeEventListener('hardwareBackPress', onBackPress);
     }, []),
   );
+
+  const navigationofSignUp = () => {
+    navigation.navigate('signup');
+  };
   return (
-    <View style={styles.container}>
-      <View
-        style={{
-          width: '100%',
-          height: '25%',
-          // backgroundColor: 'blue',
-          alignItems: 'center',
-          marginTop: '20%',
-        }}>
-        <Image source={require('../../assets/splash.png')} />
+    <KeyboardAvoidingView
+      style={styles.container}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+      <View style={styles.logoContainer}>
+        <Image
+          source={require('../../assets/splash.png')}
+          style={styles.logo}
+        />
       </View>
-      <View
-        style={{
-          width: '100%',
-          height: '5%',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          marginTop: 40,
-        }}>
-        <Text
-          style={{
-            fontFamily: 'Poppins-Medium',
-            color: '#DB3026',
-            fontSize: 20,
-          }}>
-          Descontos incríveis para você!
-        </Text>
+      <View style={styles.titleContainer}>
+        <Text style={styles.title}>Descontos incríveis para você!</Text>
       </View>
       <Input placeholder="Email" />
       <Input placeholder="Senha" />
-      <View
-        style={{
-          width: '100%',
-          height: '20%',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}>
-        <TouchableOpacity activeOpacity={0.8} style={styles.containerButton}>
-          <Text style={styles.textButton}>Entrar</Text>
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity activeOpacity={0.8} style={styles.button}>
+          <Text style={styles.buttonText}>Entrar</Text>
         </TouchableOpacity>
       </View>
-      <View
-        style={{
-          width: '100%',
-          height: '5%',
-
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}>
-        <Text
-          style={{
-            fontFamily: 'Poppins-Bold',
-            color: '#DB3026',
-          }}>
-          Crie uma conta grátis
-        </Text>
+      <View style={styles.signupContainer}>
+        <TouchableOpacity onPress={navigationofSignUp}>
+          <Text style={styles.signupText}>Crie uma conta grátis</Text>
+        </TouchableOpacity>
       </View>
-    </View>
+    </KeyboardAvoidingView>
   );
 }
 
