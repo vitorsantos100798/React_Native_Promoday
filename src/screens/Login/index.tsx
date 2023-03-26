@@ -1,10 +1,20 @@
 import React from 'react';
-import {Text, View} from 'react-native';
-
+import {Image, View, Text} from 'react-native';
+import {styles} from './styles';
+import {Input} from '../../components/input/input';
 function Login() {
   return (
-    <View>
-      <Text>teste</Text>
+    <View style={styles.container}>
+      <View>
+        <Image source={require('../../assets/splash.png')} />
+      </View>
+      <Text
+        style={{
+          fontFamily: 'arial',
+        }}>
+        Descontos incríveis para você!
+      </Text>
+      <Input />
     </View>
   );
 }
