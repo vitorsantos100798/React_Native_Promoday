@@ -15,7 +15,6 @@ function Login({navigation}: LoginScreenProps) {
   useFocusEffect(
     React.useCallback(() => {
       const onBackPress = () => {
-        // Impede o usuário de voltar para a tela Splash
         navigation.reset({
           index: 0,
           routes: [{name: 'login'}],
@@ -31,21 +30,65 @@ function Login({navigation}: LoginScreenProps) {
   );
   return (
     <View style={styles.container}>
-      <View>
+      <View
+        style={{
+          width: '100%',
+          height: '25%',
+          // backgroundColor: 'blue',
+          alignItems: 'center',
+          marginTop: '20%',
+        }}>
         <Image source={require('../../assets/splash.png')} />
       </View>
-      <Text
+      <View
         style={{
-          fontFamily: 'Poppins-Bold',
+          width: '100%',
+          height: '5%',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          marginTop: 40,
         }}>
-        Descontos incríveis para você!
-      </Text>
-      <Input />
-      <Input />
-      <TouchableOpacity style={styles.containerButton}>
-        <Text style={styles.textButton}>Entrar</Text>
-      </TouchableOpacity>
-      <Text>Crie uma conta grátis</Text>
+        <Text
+          style={{
+            fontFamily: 'Poppins-Medium',
+            color: '#DB3026',
+            fontSize: 20,
+          }}>
+          Descontos incríveis para você!
+        </Text>
+      </View>
+      <Input placeholder="Email" />
+      <Input placeholder="Senha" />
+      <View
+        style={{
+          width: '100%',
+          height: '20%',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}>
+        <TouchableOpacity activeOpacity={0.8} style={styles.containerButton}>
+          <Text style={styles.textButton}>Entrar</Text>
+        </TouchableOpacity>
+      </View>
+      <View
+        style={{
+          width: '100%',
+          height: '5%',
+
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}>
+        <Text
+          style={{
+            fontFamily: 'Poppins-Bold',
+            color: '#DB3026',
+          }}>
+          Crie uma conta grátis
+        </Text>
+      </View>
     </View>
   );
 }

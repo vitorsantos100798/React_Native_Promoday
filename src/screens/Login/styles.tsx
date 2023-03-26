@@ -16,8 +16,8 @@ export const styles = StyleSheet.create({
   },
   textButton: {
     color: 'white',
-    fontWeight: 'bold',
-    fontFamily: 'poppins',
-    fontSize: 24,
+    fontFamily: 'Poppins-Bold',
+    fontSize: 22,
+    letterSpacing: 1,
   },
 });
