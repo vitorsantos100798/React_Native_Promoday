@@ -1,182 +1,108 @@
 import React from 'react';
 import {NavigateScreenProps} from '../../types/NavigateScreenProps.ts';
 import {Text, View, Image, TouchableOpacity, FlatList} from 'react-native';
+import {CardPromotion} from '../../components/CardPromoTion';
 import {styles} from './styles';
 
 function Feed({navigation}: NavigateScreenProps) {
   const navigateProfile = () => {
     navigation.navigate('profile');
   };
+  const navigatePromotion = () => {
+    navigation.navigate('registerPromotion');
+  };
+
   const image = require('../../assets/profileFeed.png');
   const cart = require('../../assets/cart.png');
   const triangle = require('../../assets/triangle.png');
-
-  const products = [
+  type testeData = {
+    id: string;
+    nameSupermarketing: string;
+    price: string;
+    nameProduct: string;
+  }[];
+  const data: testeData = [
     {
       id: '1',
-      iconSupermarkt: '',
-      imagePromotion: '',
-      nameProduction: '',
-      price: '',
+      nameSupermarketing: 'Supermarket 1',
+      price: '10.99',
+      nameProduct: 'Milho Verde ',
+    },
+    {
+      id: '2',
+      nameSupermarketing: 'Supermarket 2',
+      price: '9.99',
+      nameProduct: 'Product 2',
+    },
+    {
+      id: '3',
+      nameSupermarketing: 'Supermarket 3',
+      price: '8.99',
+      nameProduct: 'Product 3',
+    },
+    {
+      id: '4',
+      nameSupermarketing: 'Supermarket 4',
+      price: '7.99',
+      nameProduct: 'Product 4',
+    },
+    {
+      id: '5',
+      nameSupermarketing: 'Supermarket 5',
+      price: '6.99',
+      nameProduct: 'Product 5',
     },
   ];
-  const ProductItem = ({name, description, price}: any) => (
-    <View style={styles.item}>
-      <Text style={styles.name}>{name}</Text>
-      <Text style={styles.description}>{description}</Text>
-      <Text style={styles.price}>{`$${price}`}</Text>
-    </View>
-  );
   return (
     <>
       <View style={styles.container}>
         <View style={styles.containerFlex}>
-          <View style={styles.logoContainer}>
-            <TouchableOpacity onPress={navigateProfile}>
-              <Image source={image} style={{marginRight: 10, marginTop: 25}} />
-            </TouchableOpacity>
-          </View>
-          <View style={styles.containerCity}>
+          <TouchableOpacity style={styles.containerCity}>
             <Image source={cart} />
             <Text style={styles.title}>Presidente Prudente</Text>
-            <TouchableOpacity>
-              <Image source={triangle} />
-            </TouchableOpacity>
-          </View>
+            <Image source={triangle} />
+          </TouchableOpacity>
         </View>
       </View>
-      <View style={styles.containerCard}>
-        <View style={styles.cardContainer}>
-          <View style={styles.cardTitleContainer}>
-            <View
-              style={{
-                width: '25%',
-                height: '60%',
-                marginLeft: '5%',
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}>
-              <Image
-                source={require('../../assets/card/iconSupermarkt.png')}
-                style={{flex: 1, width: '100%', borderRadius: 5}}
-              />
-            </View>
-            <Text
-              style={{
-                marginLeft: '2%',
-                fontFamily: 'Poppins',
-                fontWeight: 'bold',
-              }}>
-              Flesh Super Marketing
-            </Text>
-          </View>
-          <View
-            style={{
-              width: '100%',
-              height: '60%',
-            }}>
-            <Image
-              source={require('../../assets/card/imagePromotion.jpg')}
-              style={{
-                flex: 1,
-                width: '100%',
-                borderTopLeftRadius: 5,
-                borderTopRightRadius: 5,
-              }}
+      <FlatList
+        data={data}
+        keyExtractor={item => item.id}
+        renderItem={({item}) => {
+          return (
+            <CardPromotion
+              nameProduct={item.nameProduct}
+              price={item.price}
+              nameSupermarketing={item.nameSupermarketing}
             />
-          </View>
-          <View
-            style={{
-              width: '100%',
-              height: '10%',
-              backgroundColor: '#DB3026',
-              flexDirection: 'row',
-            }}>
-            <Text
-              style={{
-                color: 'white',
-                fontFamily: 'Poppins-Medium',
-                fontSize: 16,
-                marginLeft: '35%',
-                marginTop: '2%',
-              }}>
-              Laranja Lima
-            </Text>
-            <TouchableOpacity style={{marginLeft: '20%', marginTop: '2%'}}>
-              <Image source={require('../../assets/card/iconWaze.png')} />
-            </TouchableOpacity>
-          </View>
-          <View
-            style={{
-              flex: 1,
-              flexDirection: 'row',
-              borderWidth: 1,
-              borderColor: '#C6C6C6',
-              borderTopWidth: 0,
-              borderBottomLeftRadius: 5,
-              borderBottomRightRadius: 5,
-            }}>
-            <View
-              style={{
-                width: '80%',
-                height: '100%',
+          );
+        }}
+      />
 
-                flexDirection: 'row',
-                justifyContent: 'space-around',
-                alignItems: 'center',
-              }}>
-              <View>
-                <TouchableOpacity>
-                  <Image source={require('../../assets/card/Like.png')} />
-                </TouchableOpacity>
-                <Text
-                  style={{
-                    fontFamily: 'Poppins-Regular',
-                  }}>
-                  Valida
-                </Text>
-              </View>
-              <View>
-                <TouchableOpacity>
-                  <Image source={require('../../assets/card/deslike.png')} />
-                </TouchableOpacity>
-                <Text
-                  style={{
-                    fontFamily: 'Poppins-Regular',
-                  }}>
-                  Invalida
-                </Text>
-              </View>
-              <View>
-                <TouchableOpacity>
-                  <Image source={require('../../assets/card/acabou.png')} />
-                </TouchableOpacity>
-                <Text
-                  style={{
-                    fontFamily: 'Poppins-Regular',
-                  }}>
-                  Acabou
-                </Text>
-              </View>
-            </View>
-            <View
-              style={{
-                flex: 1,
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}>
-              <Text
-                style={{
-                  fontFamily: 'Poppins-Bold',
-                  color: '#DB3026',
-                  fontSize: 16,
-                }}>
-                R$ 0,59
-              </Text>
-            </View>
-          </View>
-        </View>
+      <View
+        style={{
+          width: '100%',
+          height: '7%',
+          backgroundColor: '#DB3026',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}>
+        <TouchableOpacity onPress={navigatePromotion}>
+          <Text
+            style={{
+              fontFamily: 'Poppins-Bold',
+              color: 'white',
+              fontSize: 14,
+            }}>
+            DIVULGUE UMA PROMOÇÃO
+          </Text>
+        </TouchableOpacity>
       </View>
+      <View
+        style={{
+          width: '100%',
+          height: '8%',
+          backgroundColor: 'white',
+        }}></View>
     </>
   );
 }

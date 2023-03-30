@@ -64,7 +64,7 @@ function Routes() {
           component={RegisterPromotion}
           options={{
             title: '',
-            headerShown: false,
+            // headerShown: false,
             headerTransparent: true,
           }}
         />

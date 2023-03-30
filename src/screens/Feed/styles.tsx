@@ -4,7 +4,7 @@ export const styles = StyleSheet.create({
   container: {
     backgroundColor: '#DB3026',
     width: '100%',
-    height: '13%',
+    height: '10%',
     borderBottomLeftRadius: 10,
     borderBottomRightRadius: 10,
   },
@@ -48,20 +48,5 @@ export const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     textAlign: 'right',
-  },
-  containerCard: {
-    flex: 1,
-    alignItems: 'center',
-  },
-  cardContainer: {
-    width: '80%',
-    height: '60%',
-    marginTop: '10%',
-  },
-  cardTitleContainer: {
-    width: '100%',
-    height: '15%',
-    flexDirection: 'row',
-    alignItems: 'center',
   },
 });
