@@ -49,4 +49,19 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'right',
   },
+  containerCard: {
+    flex: 1,
+    alignItems: 'center',
+  },
+  cardContainer: {
+    width: '80%',
+    height: '60%',
+    marginTop: '10%',
+  },
+  cardTitleContainer: {
+    width: '100%',
+    height: '15%',
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
 });

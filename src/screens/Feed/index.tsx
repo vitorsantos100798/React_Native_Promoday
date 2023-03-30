@@ -45,25 +45,9 @@ function Feed({navigation}: NavigateScreenProps) {
           </View>
         </View>
       </View>
-      <View
-        style={{
-          flex: 1,
-          alignItems: 'center',
-        }}>
-        <View
-          style={{
-            width: '80%',
-            height: '60%',
-            marginTop: '10%',
-          }}>
-          <View
-            style={{
-              width: '100%',
-              height: '15%',
-
-              flexDirection: 'row',
-              alignItems: 'center',
-            }}>
+      <View style={styles.containerCard}>
+        <View style={styles.cardContainer}>
+          <View style={styles.cardTitleContainer}>
             <View
               style={{
                 width: '25%',
