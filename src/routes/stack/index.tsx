@@ -8,6 +8,7 @@ import SucessRegistration from '../../screens/SucessRegistration';
 import Profile from '../../screens/Profile';
 import RegisterPromotion from '../../screens/RegisterPromotion';
 import Feed from '../../screens/Feed';
+import {Club} from '../../screens/Club';
 
 const Stack = createNativeStackNavigator();
 
@@ -54,6 +55,14 @@ function Routes() {
         <Stack.Screen
           name="profile"
           component={Profile}
+          options={{
+            title: '',
+            headerTransparent: true,
+          }}
+        />
+        <Stack.Screen
+          name="club"
+          component={Club}
           options={{
             title: '',
             headerTransparent: true,

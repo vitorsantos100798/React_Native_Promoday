@@ -8,6 +8,12 @@ export const styles = StyleSheet.create({
     borderBottomLeftRadius: 10,
     borderBottomRightRadius: 10,
   },
+  activeRoute: {
+    tintColor: '#DB3026',
+  },
+  falseRoute: {
+    tintColor: '#d3d3d3',
+  },
   logoContainer: {
     width: '100%',
     height: '35%',

@@ -4,12 +4,15 @@ import {Text, View, Image, TouchableOpacity, FlatList} from 'react-native';
 import {CardPromotion} from '../../components/CardPromoTion';
 import {styles} from './styles';
 
-function Feed({navigation}: NavigateScreenProps) {
+function Feed({navigation, focused}: NavigateScreenProps) {
   const navigateProfile = () => {
     navigation.navigate('profile');
   };
   const navigatePromotion = () => {
     navigation.navigate('registerPromotion');
+  };
+  const navigateClub = () => {
+    navigation.navigate('club');
   };
 
   const image = require('../../assets/profileFeed.png');
@@ -100,9 +103,34 @@ function Feed({navigation}: NavigateScreenProps) {
       <View
         style={{
           width: '100%',
-          height: '8%',
+          height: '7%',
           backgroundColor: 'white',
-        }}></View>
+          flexDirection: 'row',
+          justifyContent: 'space-around',
+          alignItems: 'center',
+        }}>
+        <View>
+          <TouchableOpacity>
+            <Image
+              source={require('../../assets/iconFeed.png')}
+              style={styles.activeRoute}
+            />
+          </TouchableOpacity>
+          <Text>Feed</Text>
+        </View>
+        <View>
+          <TouchableOpacity onPress={navigateClub}>
+            <Image source={require('../../assets/iconClub.png')} />
+          </TouchableOpacity>
+          <Text>Club</Text>
+        </View>
+        <View>
+          <TouchableOpacity onPress={navigateProfile}>
+            <Image source={require('../../assets/iconProfileTwo.png')} />
+          </TouchableOpacity>
+          <Text>Perfil</Text>
+        </View>
+      </View>
     </>
   );
 }
