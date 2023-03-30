@@ -56,7 +56,6 @@ function Routes() {
           component={Profile}
           options={{
             title: '',
-            headerShown: false,
             headerTransparent: true,
           }}
         />
