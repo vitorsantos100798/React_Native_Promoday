@@ -24,6 +24,7 @@ function Feed({navigation, focused}: NavigateScreenProps) {
   };
   const cart = require('../../assets/cart.png');
   const triangle = require('../../assets/triangle.png');
+  const triangleOpen = require('../../assets/triangleOpen.png');
   type testeData = {
     id: string;
     nameSupermarketing: string;
@@ -69,7 +70,10 @@ function Feed({navigation, focused}: NavigateScreenProps) {
           <TouchableOpacity onPress={toggleModal} style={styles.containerCity}>
             <Image style={{width: 28, height: 28}} source={cart} />
             <Text style={styles.title}>Presidente Prudente</Text>
-            <Image source={triangle} />
+            <Image
+              style={{marginBottom: '1%'}}
+              source={modalVisible ? triangle : triangleOpen}
+            />
           </TouchableOpacity>
         </View>
       </View>
