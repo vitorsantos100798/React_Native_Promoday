@@ -60,11 +60,66 @@ function Feed({navigation, focused}: NavigateScreenProps) {
     <>
       <View style={styles.container}>
         <View style={styles.containerFlex}>
-          <TouchableOpacity style={styles.containerCity}>
-            <Image source={cart} />
-            <Text style={styles.title}>Presidente Prudente</Text>
-            <Image source={triangle} />
-          </TouchableOpacity>
+          <View
+            style={{
+              //  backgroundColor: 'pink',
+              width: '80%',
+              height: '100%',
+              flexDirection: 'row',
+            }}>
+            <View
+              style={{
+                width: '20%',
+                height: '100%',
+                //  backgroundColor: 'blue',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}>
+              <Image
+                style={{
+                  width: 33,
+                  height: 33,
+                }}
+                source={require('../../assets/cart.png')}
+              />
+            </View>
+
+            <View
+              style={{
+                width: '80%',
+                height: '100%',
+                //  backgroundColor: 'red',
+                justifyContent: 'center',
+                alignItems: 'center',
+                flexDirection: 'row',
+              }}>
+              <TouchableOpacity
+                style={{
+                  flexDirection: 'row',
+                  flex: 1,
+                }}>
+                <Text style={styles.title}>Presidente Prudente</Text>
+                <Image
+                  style={{marginTop: '3%'}}
+                  source={require('../../assets/triangle.png')}
+                />
+              </TouchableOpacity>
+            </View>
+          </View>
+          <View
+            style={{
+              // backgroundColor: 'green',
+              width: '20%',
+              height: '100%',
+              alignItems: 'flex-end',
+            }}>
+            <TouchableOpacity onPress={navigateProfile}>
+              <Image
+                source={require('../../assets/iconProfileTwo.png')}
+                style={styles.setColorIcon}
+              />
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
       <FlatList
@@ -80,7 +135,19 @@ function Feed({navigation, focused}: NavigateScreenProps) {
           );
         }}
       />
-
+      <View>
+        <Image
+          style={{
+            width: 43,
+            height: 43,
+            resizeMode: 'contain',
+            borderRadius: 100,
+            backgroundColor: 'red',
+            flex: 1,
+          }}
+          source={require('../../assets/sucessRegistration.png')}
+        />
+      </View>
       <View
         style={{
           width: '100%',
@@ -100,7 +167,7 @@ function Feed({navigation, focused}: NavigateScreenProps) {
           </Text>
         </TouchableOpacity>
       </View>
-      <View
+      {/* <View
         style={{
           width: '100%',
           height: '7%',
@@ -116,21 +183,39 @@ function Feed({navigation, focused}: NavigateScreenProps) {
               style={styles.activeRoute}
             />
           </TouchableOpacity>
-          <Text>Feed</Text>
+          <Text style={styles.text}>Feed</Text>
         </View>
+        <View
+          style={{
+            borderWidth: 1,
+            borderColor: '#0808086a',
+            height: 35,
+          }}></View>
         <View>
           <TouchableOpacity onPress={navigateClub}>
-            <Image source={require('../../assets/iconClub.png')} />
+            <Image
+              source={require('../../assets/iconClub.png')}
+              style={styles.setColorIcon}
+            />
           </TouchableOpacity>
-          <Text>Club</Text>
+          <Text style={styles.text}>Club</Text>
         </View>
+        <View
+          style={{
+            borderWidth: 1,
+            borderColor: '#0808086a',
+            height: 35,
+          }}></View>
         <View>
           <TouchableOpacity onPress={navigateProfile}>
-            <Image source={require('../../assets/iconProfileTwo.png')} />
+            <Image
+              source={require('../../assets/iconProfileTwo.png')}
+              style={styles.setColorIcon}
+            />
           </TouchableOpacity>
-          <Text>Perfil</Text>
+          <Text style={styles.text}>Perfil</Text>
         </View>
-      </View>
+      </View> */}
     </>
   );
 }

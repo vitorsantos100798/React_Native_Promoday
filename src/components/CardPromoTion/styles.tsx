@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
   cardContainer: {
     width: '70%',
     height: '60%',
-    marginTop: '10%',
+    marginTop: '5%',
   },
   cardTitleContainer: {
     width: '100%',
@@ -61,9 +61,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     borderWidth: 1,
     borderColor: '#C6C6C6',
-    borderTopWidth: 0,
-    borderBottomLeftRadius: 5,
-    borderBottomRightRadius: 5,
   },
   containerDadIcons: {
     width: '80%',
