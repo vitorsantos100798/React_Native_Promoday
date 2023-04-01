@@ -11,7 +11,7 @@ import {
 import {CardPromotion} from '../../components/CardPromoTion';
 import AppBar from '../../components/AppBar';
 import {styles} from './styles';
-import {ModalComponent} from '../../components/Modal';
+import {CleanModal} from '../../components/Modal';
 
 function Feed({navigation, focused}: NavigateScreenProps) {
   const [modalVisible, setModalVisible] = useState(false);
@@ -30,37 +30,59 @@ function Feed({navigation, focused}: NavigateScreenProps) {
     nameSupermarketing: string;
     price: string;
     nameProduct: string;
+    imagePromotion?: string | undefined;
+    iconSupermarketing?: string | undefined;
   }[];
   const data: testeData = [
     {
       id: '1',
-      nameSupermarketing: 'Supermarket 1',
+      nameSupermarketing: 'Super Market',
       price: '10.99',
       nameProduct: 'Milho Verde ',
+      iconSupermarketing:
+        'https://img.freepik.com/vetores-premium/logotipo-do-supermercado_23-2148459011.jpg?w=740',
+      imagePromotion:
+        'https://vejasp.abril.com.br/wp-content/uploads/2016/11/23755_extra005.jpeg?quality=70&strip=info&w=1280&h=720&crop=1',
     },
     {
       id: '2',
-      nameSupermarketing: 'Supermarket 2',
+      nameSupermarketing: '24 Supermercado',
       price: '9.99',
-      nameProduct: 'Product 2',
+      nameProduct: 'Cerveja',
+      iconSupermarketing:
+        'https://img.freepik.com/vetores-gratis/design-com-carrinho-para-logotipo-de-supermercado_23-2148464351.jpg?w=740&t=st=1680351177~exp=1680351777~hmac=99e89de355127ed2ff3a4345c94573345adb01116f5d4361335785f3fdaddfe0',
+      imagePromotion:
+        'https://sgsistemas.com.br/wp-content/uploads/2020/03/Blog_SG_Sistemas__8.jpg',
     },
     {
       id: '3',
-      nameSupermarketing: 'Supermarket 3',
+      nameSupermarketing: 'Supermercado Estrela',
       price: '8.99',
-      nameProduct: 'Product 3',
+      nameProduct: 'Arroz',
+      imagePromotion:
+        'https://diariodocomercio.com.br/wp-content/uploads/2018/10/supermercado.jpg',
+      iconSupermarketing:
+        'https://scontent-gru2-2.xx.fbcdn.net/v/t39.30808-6/271814661_2902583459997041_8655658504887847101_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=xALWdqStPbMAX_ZK0ng&_nc_ht=scontent-gru2-2.xx&oh=00_AfCO1yXJIQ22wEgYJ9PO9adJ1ipt2aZpw7XQdFL9E4L0ng&oe=642DF4C8',
     },
     {
       id: '4',
-      nameSupermarketing: 'Supermarket 4',
+      nameSupermarketing: 'União Supermercado',
       price: '7.99',
-      nameProduct: 'Product 4',
+      nameProduct: 'Feijão',
+      imagePromotion:
+        'https://sgsistemas.com.br/wp-content/uploads/2020/03/Blog_SG_Sistemas__9.jpg',
+      iconSupermarketing:
+        'https://scontent-gru1-1.xx.fbcdn.net/v/t39.30808-6/258824538_1017735978958716_9219089866339523527_n.png?_nc_cat=104&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=h_YbggG1HfMAX9eyL2v&_nc_ht=scontent-gru1-1.xx&oh=00_AfDIBvGZnzrraoJrepKC-749Tq2xP8XFfb0hfHfR6DcuCg&oe=642DF491',
     },
     {
       id: '5',
-      nameSupermarketing: 'Supermarket 5',
+      nameSupermarketing: 'Supermercado Tavin',
       price: '6.99',
-      nameProduct: 'Product 5',
+      nameProduct: 'Açucar',
+      imagePromotion:
+        'http://www.blogdosupermercado.com.br/wp-content/uploads/2017/10/supermercado-ofertas.jpg',
+      iconSupermarketing:
+        'https://s3-sa-east-1.amazonaws.com/projetos-artes/fullsize%2f2011%2f08%2f18%2f08%2fWDL-Logo-6598_9026_040951059_875058798.jpg',
     },
   ];
   return (
@@ -86,6 +108,8 @@ function Feed({navigation, focused}: NavigateScreenProps) {
               nameProduct={item.nameProduct}
               price={item.price}
               nameSupermarketing={item.nameSupermarketing}
+              iconSupermarketing={item.iconSupermarketing}
+              imagePromotion={item.imagePromotion}
             />
           );
         }}
@@ -111,10 +135,10 @@ function Feed({navigation, focused}: NavigateScreenProps) {
         </TouchableOpacity>
       </View>
       <AppBar feed={true} />
-      <ModalComponent height={'30%'} isVisible={modalVisible}>
+      <CleanModal height={'30%'} isVisible={modalVisible}>
         <Text>Conteúdo do modal</Text>
         <Button title="Fechar" onPress={toggleModal} />
-      </ModalComponent>
+      </CleanModal>
     </>
   );
 }

@@ -6,11 +6,15 @@ type Props = {
   nameSupermarketing: string;
   price: string;
   nameProduct: string;
+  imagePromotion: string | undefined;
+  iconSupermarketing: string | undefined;
 };
 export const CardPromotion = ({
   nameSupermarketing,
   price,
   nameProduct,
+  imagePromotion,
+  iconSupermarketing,
 }: Props) => {
   const [colorDeslike, setColorDeslike] = useState(false);
   const [colorLike, setColorLike] = useState(false);
@@ -32,7 +36,7 @@ export const CardPromotion = ({
           <View style={styles.containerImage}>
             <Image
               source={{
-                uri: 'https://i.pinimg.com/564x/3c/dd/42/3cdd42a218559f40be959490003a349d.jpg',
+                uri: iconSupermarketing,
               }}
               style={styles.iconSupermarketing}
             />
@@ -41,7 +45,9 @@ export const CardPromotion = ({
         </View>
         <View style={styles.containerImagePromotion}>
           <Image
-            source={require('../../assets/card/imagePromotion.jpg')}
+            source={{
+              uri: imagePromotion,
+            }}
             style={styles.imagePromotion}
           />
         </View>

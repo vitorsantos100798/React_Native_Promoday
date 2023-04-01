@@ -1,12 +1,13 @@
 import React, {useState} from 'react';
-import {Modal, View, StyleSheet} from 'react-native';
-import styles from './styles';
+import {Modal, View} from 'react-native';
+import styles, {modalStyle} from './styles';
 type ModalType = {
   isVisible: boolean;
   children: React.ReactNode;
-  height?: string | number;
+  height?: number | string;
 };
-export const ModalComponent = ({isVisible, children, height}: ModalType) => {
+
+export const CleanModal = ({isVisible, children, height}: ModalType) => {
   const [modalHeight, setModalHeight] = useState(0);
 
   const handleLayout = (event: any) => {
@@ -18,15 +19,7 @@ export const ModalComponent = ({isVisible, children, height}: ModalType) => {
     <Modal animationType="slide" transparent={true} visible={isVisible}>
       <View style={[styles.container, {height: modalHeight / 2}]}>
         <View
-          style={{
-            backgroundColor: '#fff',
-            borderTopLeftRadius: 20,
-            borderTopRightRadius: 20,
-            padding: 20,
-            height: height,
-            borderWidth: 1,
-            borderColor: '#D3D3D3',
-          }}
+          style={modalStyle({height: height! ?? 200})}
           onLayout={handleLayout}>
           {children}
         </View>
