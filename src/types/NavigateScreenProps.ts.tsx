@@ -1,4 +1,4 @@
 export type NavigateScreenProps = {
-  navigation: any;
-  focused: any;
+  navigation?: any;
+  focused?: any;
 };

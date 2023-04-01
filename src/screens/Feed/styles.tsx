@@ -4,15 +4,9 @@ export const styles = StyleSheet.create({
   container: {
     backgroundColor: '#DB3026',
     width: '100%',
-    height: '10%',
+    height: '8%',
     borderBottomLeftRadius: 10,
     borderBottomRightRadius: 10,
-  },
-  activeRoute: {
-    tintColor: '#DB3026',
-  },
-  falseRoute: {
-    tintColor: '#d3d3d3',
   },
   logoContainer: {
     width: '100%',
@@ -24,9 +18,9 @@ export const styles = StyleSheet.create({
     flex: 1,
   },
   title: {
-    fontFamily: 'Poppins-Medium',
+    fontFamily: 'Poppins-Regular',
     color: 'white',
-    fontSize: 20,
+    fontSize: 19,
     marginRight: 15,
     marginLeft: 15,
   },
