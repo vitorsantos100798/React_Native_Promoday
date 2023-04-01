@@ -4,19 +4,21 @@ const styles = StyleSheet.create({
   containerCard: {
     paddingVertical: 8,
     paddingHorizontal: 16,
+    flex: 1,
+    alignItems: 'center',
   },
   cardContainer: {
     backgroundColor: '#FFF',
     borderRadius: 8,
     overflow: 'hidden',
-    shadowColor: '#000',
+    shadowColor: '#000000',
     shadowOffset: {
       width: 0,
       height: 2,
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
-
+    width: '80%',
     elevation: 5,
   },
   cardTitleContainer: {
@@ -38,8 +40,8 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   titleNameSupermarkt: {
-    fontWeight: 'bold',
-    fontSize: 16,
+    fontFamily: 'Poppins-SemiBold',
+    fontSize: 14,
     lineHeight: 20,
     color: '#333333',
   },
@@ -63,17 +65,26 @@ const styles = StyleSheet.create({
     borderBottomColor: '#F5F5F5',
   },
   textRangeProduct: {
-    fontWeight: 'bold',
+    //fontWeight: 'bold',
     fontSize: 16,
-    lineHeight: 20,
+    lineHeight: 18,
     color: '#333333',
+    fontFamily: 'Poppins-SemiBold',
   },
   conatinerIconWaze: {
     width: 32,
     height: 32,
-    borderRadius: 50,
+    borderRadius: 5,
     overflow: 'hidden',
+    backgroundColor: '#35CBFE',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
+  iconContainer: {
+    alignItems: 'center',
+  },
+
   containerIcons: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -84,6 +95,8 @@ const styles = StyleSheet.create({
   containerDadIcons: {
     flexDirection: 'row',
     alignItems: 'center',
+    width: '60%',
+    justifyContent: 'space-between',
   },
   defaultColor: {
     width: 24,
@@ -101,13 +114,14 @@ const styles = StyleSheet.create({
     fontSize: 12,
     lineHeight: 16,
     color: '#828282',
+    fontFamily: 'Poppins-SemiBold',
   },
   containerPrice: {},
   titlePrice: {
-    fontWeight: 'bold',
     fontSize: 16,
     lineHeight: 20,
-    color: '#333333',
+    fontFamily: 'Poppins-Bold',
+    color: '#DB3026',
   },
 });
 

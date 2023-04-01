@@ -32,7 +32,7 @@ export const CardPromotion = ({
           <View style={styles.containerImage}>
             <Image
               source={{
-                uri: 'https://s3-sa-east-1.amazonaws.com/projetos-artes/fullsize%2f2011%2f09%2f26%2f14%2fWDL-Logo-7184_6769_041335667_259168100.jpg',
+                uri: 'https://i.pinimg.com/564x/3c/dd/42/3cdd42a218559f40be959490003a349d.jpg',
               }}
               style={styles.iconSupermarketing}
             />
@@ -48,37 +48,50 @@ export const CardPromotion = ({
         <View style={styles.containerProductRange}>
           <Text style={styles.textRangeProduct}>{nameProduct}</Text>
           <TouchableOpacity style={styles.conatinerIconWaze}>
-            <Image source={require('../../assets/card/iconWaze.png')} />
+            <Image
+              style={{tintColor: '#ffffff'}}
+              source={require('../../assets/card/iconWaze.png')}
+            />
           </TouchableOpacity>
         </View>
         <View style={styles.containerIcons}>
           <View style={styles.containerDadIcons}>
             <View>
               <TouchableOpacity onPress={setColorIconLike}>
-                <Image
-                  style={colorLike ? styles.activeColor : styles.defaultColor}
-                  source={require('../../assets/card/Like.png')}
-                />
+                <View style={styles.iconContainer}>
+                  <Image
+                    style={colorLike ? styles.activeColor : styles.defaultColor}
+                    source={require('../../assets/card/Like.png')}
+                  />
+                </View>
               </TouchableOpacity>
               <Text style={styles.titleIcons}>Valida</Text>
             </View>
+
             <View>
               <TouchableOpacity onPress={setColorIconDesLike}>
-                <Image
-                  style={
-                    colorDeslike ? styles.activeColor : styles.defaultColor
-                  }
-                  source={require('../../assets/card/deslike.png')}
-                />
+                <View style={styles.iconContainer}>
+                  <Image
+                    style={
+                      colorDeslike ? styles.activeColor : styles.defaultColor
+                    }
+                    source={require('../../assets/card/deslike.png')}
+                  />
+                </View>
               </TouchableOpacity>
               <Text style={styles.titleIcons}>Invalida</Text>
             </View>
+
             <View>
               <TouchableOpacity onPress={setColorIconAcabou}>
-                <Image
-                  style={colorAcabou ? styles.activeColor : styles.defaultColor}
-                  source={require('../../assets/card/acabou.png')}
-                />
+                <View style={styles.iconContainer}>
+                  <Image
+                    style={
+                      colorAcabou ? styles.activeColor : styles.defaultColor
+                    }
+                    source={require('../../assets/card/acabou.png')}
+                  />
+                </View>
               </TouchableOpacity>
               <Text style={styles.titleIcons}>Acabou</Text>
             </View>

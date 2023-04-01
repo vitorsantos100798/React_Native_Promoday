@@ -7,16 +7,9 @@ export const Club = () => {
       <View
         style={{
           flex: 1,
-          backgroundColor: 'white',
-          justifyContent: 'space-between',
+          //backgroundColor: 'blue',
+          justifyContent: 'flex-end',
         }}>
-        <View
-          style={{
-            width: '100%',
-            height: '93%',
-            //  backgroundColor: 'pink',
-          }}></View>
-
         <AppBar club={true} />
       </View>
     </>
