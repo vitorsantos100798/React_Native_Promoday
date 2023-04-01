@@ -2,90 +2,113 @@ import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   containerCard: {
-    flex: 1,
-    alignItems: 'center',
-    backgroundColor: 'white',
+    paddingVertical: 8,
+    paddingHorizontal: 16,
   },
   cardContainer: {
-    width: '70%',
-    height: '60%',
-    marginTop: '5%',
+    backgroundColor: '#FFF',
+    borderRadius: 8,
+    overflow: 'hidden',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+
+    elevation: 5,
   },
   cardTitleContainer: {
-    width: '100%',
-    height: '15%',
     flexDirection: 'row',
     alignItems: 'center',
+    backgroundColor: '#F5F5F5',
+    paddingVertical: 8,
+    paddingHorizontal: 16,
   },
   containerImage: {
-    width: '25%',
-    height: 35,
-    marginLeft: '5%',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  titleNameSupermarkt: {
-    marginLeft: '2%',
-    fontFamily: 'Poppins',
-    fontWeight: 'bold',
-  },
-  containerImagePromotion: {
-    width: '100%',
-    height: 300,
-  },
-  imagePromotion: {
-    flex: 1,
-    width: '100%',
-    borderTopLeftRadius: 5,
-    borderTopRightRadius: 5,
-  },
-
-  containerProductRange: {
-    width: '100%',
-    height: 50,
-    backgroundColor: '#DB3026',
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  textRangeProduct: {
-    color: 'white',
-    fontFamily: 'Poppins-Medium',
-    fontSize: 16,
-  },
-  conatinerIconWaze: {
-    marginLeft: 20,
-  },
-  containerIcons: {
-    flex: 1,
-    flexDirection: 'row',
-    borderWidth: 1,
-    borderColor: '#C6C6C6',
-  },
-  containerDadIcons: {
-    width: '80%',
-    height: '100%',
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-  },
-  titleIcons: {
-    fontFamily: 'Poppins-Regular',
-  },
-  containerPrice: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  titlePrice: {
-    fontFamily: 'Poppins-Bold',
-    color: '#DB3026',
-    fontSize: 16,
+    width: 32,
+    height: 32,
+    borderRadius: 50,
+    overflow: 'hidden',
+    marginRight: 8,
   },
   iconSupermarketing: {
-    flex: 1,
     width: '100%',
-    borderRadius: 5,
+    height: '100%',
+  },
+  titleNameSupermarkt: {
+    fontWeight: 'bold',
+    fontSize: 16,
+    lineHeight: 20,
+    color: '#333333',
+  },
+  containerImagePromotion: {
+    height: 200,
+    width: '100%',
+    overflow: 'hidden',
+  },
+  imagePromotion: {
+    height: '100%',
+    width: '100%',
+    resizeMode: 'cover',
+  },
+  containerProductRange: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: '#F5F5F5',
+  },
+  textRangeProduct: {
+    fontWeight: 'bold',
+    fontSize: 16,
+    lineHeight: 20,
+    color: '#333333',
+  },
+  conatinerIconWaze: {
+    width: 32,
+    height: 32,
+    borderRadius: 50,
+    overflow: 'hidden',
+  },
+  containerIcons: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+  },
+  containerDadIcons: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  defaultColor: {
+    width: 24,
+    height: 24,
+    tintColor: '#c4c4c4',
+    marginRight: 8,
+  },
+  activeColor: {
+    width: 24,
+    height: 24,
+    tintColor: '#DB3026',
+    marginRight: 8,
+  },
+  titleIcons: {
+    fontSize: 12,
+    lineHeight: 16,
+    color: '#828282',
+  },
+  containerPrice: {},
+  titlePrice: {
+    fontWeight: 'bold',
+    fontSize: 16,
+    lineHeight: 20,
+    color: '#333333',
   },
 });
+
 export default styles;

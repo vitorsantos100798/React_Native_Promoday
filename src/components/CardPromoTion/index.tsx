@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, Text, Image, TouchableOpacity} from 'react-native';
 import styles from './styles';
 
@@ -12,6 +12,19 @@ export const CardPromotion = ({
   price,
   nameProduct,
 }: Props) => {
+  const [colorDeslike, setColorDeslike] = useState(false);
+  const [colorLike, setColorLike] = useState(false);
+  const [colorAcabou, setColorAcabou] = useState(false);
+
+  const setColorIconLike = () => {
+    setColorLike(!colorLike);
+  };
+  const setColorIconDesLike = () => {
+    setColorDeslike(!colorDeslike);
+  };
+  const setColorIconAcabou = () => {
+    setColorAcabou(!colorAcabou);
+  };
   return (
     <View style={styles.containerCard}>
       <View style={styles.cardContainer}>
@@ -41,20 +54,31 @@ export const CardPromotion = ({
         <View style={styles.containerIcons}>
           <View style={styles.containerDadIcons}>
             <View>
-              <TouchableOpacity>
-                <Image source={require('../../assets/card/Like.png')} />
+              <TouchableOpacity onPress={setColorIconLike}>
+                <Image
+                  style={colorLike ? styles.activeColor : styles.defaultColor}
+                  source={require('../../assets/card/Like.png')}
+                />
               </TouchableOpacity>
               <Text style={styles.titleIcons}>Valida</Text>
             </View>
             <View>
-              <TouchableOpacity>
-                <Image source={require('../../assets/card/deslike.png')} />
+              <TouchableOpacity onPress={setColorIconDesLike}>
+                <Image
+                  style={
+                    colorDeslike ? styles.activeColor : styles.defaultColor
+                  }
+                  source={require('../../assets/card/deslike.png')}
+                />
               </TouchableOpacity>
               <Text style={styles.titleIcons}>Invalida</Text>
             </View>
             <View>
-              <TouchableOpacity>
-                <Image source={require('../../assets/card/acabou.png')} />
+              <TouchableOpacity onPress={setColorIconAcabou}>
+                <Image
+                  style={colorAcabou ? styles.activeColor : styles.defaultColor}
+                  source={require('../../assets/card/acabou.png')}
+                />
               </TouchableOpacity>
               <Text style={styles.titleIcons}>Acabou</Text>
             </View>

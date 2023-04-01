@@ -21,7 +21,7 @@ function AppBar({feed, club}: any) {
         style={{
           width: '100%',
           height: '7%',
-          backgroundColor: 'white',
+          backgroundColor: '#ffffff',
           flexDirection: 'row',
           justifyContent: 'space-around',
           alignItems: 'center',
