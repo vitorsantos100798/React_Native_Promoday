@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {View, Text, Image, TouchableOpacity} from 'react-native';
 import styles from './styles';
 
-type Props = {
+type TypeCardPromotion = {
   nameSupermarketing: string;
   price: string;
   nameProduct: string;
@@ -15,7 +15,7 @@ export const CardPromotion = ({
   nameProduct,
   imagePromotion,
   iconSupermarketing,
-}: Props) => {
+}: TypeCardPromotion) => {
   const [colorDeslike, setColorDeslike] = useState(false);
   const [colorLike, setColorLike] = useState(false);
   const [colorAcabou, setColorAcabou] = useState(false);
