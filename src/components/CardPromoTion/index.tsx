@@ -20,15 +20,52 @@ export const CardPromotion = ({
   const [colorLike, setColorLike] = useState(false);
   const [colorAcabou, setColorAcabou] = useState(false);
 
+  const [counterValid, setCounterValid] = useState(0);
+  const [counterInvalid, setCounterInvalid] = useState(0);
+  const [counterFinished, setCounterFinished] = useState(0);
+
   const setColorIconLike = () => {
-    setColorLike(!colorLike);
+    if (colorLike) {
+      setColorLike(false);
+      setCounterValid(counterValid - 1);
+    } else {
+      setColorLike(true);
+      setColorDeslike(false);
+      setColorAcabou(false);
+      setCounterValid(counterValid + 1);
+      setCounterInvalid(0);
+      setCounterFinished(0);
+    }
   };
+
   const setColorIconDesLike = () => {
-    setColorDeslike(!colorDeslike);
+    if (colorDeslike) {
+      setColorDeslike(false);
+      setCounterInvalid(counterInvalid - 1);
+    } else {
+      setColorDeslike(true);
+      setColorLike(false);
+      setColorAcabou(false);
+      setCounterInvalid(counterInvalid + 1);
+      setCounterValid(0);
+      setCounterFinished(0);
+    }
   };
+
   const setColorIconAcabou = () => {
-    setColorAcabou(!colorAcabou);
+    if (colorAcabou) {
+      setColorAcabou(false);
+      setCounterFinished(counterFinished - 1);
+    } else {
+      setColorAcabou(true);
+      setColorLike(false);
+      setColorDeslike(false);
+      setCounterFinished(counterFinished + 1);
+      setCounterValid(0);
+      setCounterInvalid(0);
+    }
   };
+
   return (
     <View style={styles.containerCard}>
       <View style={styles.cardContainer}>

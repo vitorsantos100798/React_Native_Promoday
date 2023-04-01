@@ -37,8 +37,8 @@ function Feed({navigation, focused}: NavigateScreenProps) {
     {
       id: '1',
       nameSupermarketing: 'Super Market',
-      price: '10.99',
-      nameProduct: 'Milho Verde ',
+      price: '7.39',
+      nameProduct: ' Fardo de Refrigerante',
       iconSupermarketing:
         'https://img.freepik.com/vetores-premium/logotipo-do-supermercado_23-2148459011.jpg?w=740',
       imagePromotion:
@@ -47,7 +47,7 @@ function Feed({navigation, focused}: NavigateScreenProps) {
     {
       id: '2',
       nameSupermarketing: '24 Supermercado',
-      price: '9.99',
+      price: '12.99',
       nameProduct: 'Cerveja',
       iconSupermarketing:
         'https://img.freepik.com/vetores-gratis/design-com-carrinho-para-logotipo-de-supermercado_23-2148464351.jpg?w=740&t=st=1680351177~exp=1680351777~hmac=99e89de355127ed2ff3a4345c94573345adb01116f5d4361335785f3fdaddfe0',
@@ -67,7 +67,7 @@ function Feed({navigation, focused}: NavigateScreenProps) {
     {
       id: '4',
       nameSupermarketing: 'União Supermercado',
-      price: '7.99',
+      price: '9.99',
       nameProduct: 'Feijão',
       imagePromotion:
         'https://sgsistemas.com.br/wp-content/uploads/2020/03/Blog_SG_Sistemas__9.jpg',
@@ -77,7 +77,7 @@ function Feed({navigation, focused}: NavigateScreenProps) {
     {
       id: '5',
       nameSupermarketing: 'Supermercado Tavin',
-      price: '6.99',
+      price: '9.90',
       nameProduct: 'Açucar',
       imagePromotion:
         'http://www.blogdosupermercado.com.br/wp-content/uploads/2017/10/supermercado-ofertas.jpg',
