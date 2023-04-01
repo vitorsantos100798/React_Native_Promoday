@@ -1,11 +1,24 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {NavigateScreenProps} from '../../types/NavigateScreenProps.ts';
-import {Text, View, Image, TouchableOpacity, FlatList} from 'react-native';
+import {
+  Text,
+  View,
+  Image,
+  TouchableOpacity,
+  FlatList,
+  Button,
+} from 'react-native';
 import {CardPromotion} from '../../components/CardPromoTion';
 import AppBar from '../../components/AppBar';
 import {styles} from './styles';
+import {ModalComponent} from '../../components/Modal';
 
 function Feed({navigation, focused}: NavigateScreenProps) {
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const toggleModal = () => {
+    setModalVisible(!modalVisible);
+  };
   const navigatePromotion = () => {
     navigation.navigate('registerPromotion');
   };
@@ -53,7 +66,7 @@ function Feed({navigation, focused}: NavigateScreenProps) {
     <>
       <View style={styles.container}>
         <View style={styles.containerFlex}>
-          <TouchableOpacity style={styles.containerCity}>
+          <TouchableOpacity onPress={toggleModal} style={styles.containerCity}>
             <Image style={{width: 28, height: 28}} source={cart} />
             <Text style={styles.title}>Presidente Prudente</Text>
             <Image source={triangle} />
@@ -94,6 +107,10 @@ function Feed({navigation, focused}: NavigateScreenProps) {
         </TouchableOpacity>
       </View>
       <AppBar feed={true} />
+      <ModalComponent height={'30%'} isVisible={modalVisible}>
+        <Text>Conteúdo do modal</Text>
+        <Button title="Fechar" onPress={toggleModal} />
+      </ModalComponent>
     </>
   );
 }
