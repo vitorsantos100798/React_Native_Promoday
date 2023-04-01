@@ -4,25 +4,15 @@ export const styles = StyleSheet.create({
   container: {
     backgroundColor: '#DB3026',
     width: '100%',
-    height: '8%',
+    height: '10%',
     borderBottomLeftRadius: 10,
     borderBottomRightRadius: 10,
   },
-  setColorIcon: {
-    tintColor: 'white',
-    marginTop: 3,
-    width: 40,
-    height: 40,
-  },
   activeRoute: {
     tintColor: '#DB3026',
-    marginTop: 3,
   },
-  text: {
-    fontFamily: 'Poppins-Medium',
-    color: '#000000b6',
-    fontSize: 14,
-    marginTop: 2,
+  falseRoute: {
+    tintColor: '#d3d3d3',
   },
   logoContainer: {
     width: '100%',
@@ -30,13 +20,8 @@ export const styles = StyleSheet.create({
     alignItems: 'flex-end',
     justifyContent: 'center',
   },
-
   containerFlex: {
     flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#DB3026',
   },
   title: {
     fontFamily: 'Poppins-Medium',
@@ -47,8 +32,9 @@ export const styles = StyleSheet.create({
   },
   containerCity: {
     flex: 1,
-    width: '70%',
-    backgroundColor: 'blue',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   ////
   item: {
