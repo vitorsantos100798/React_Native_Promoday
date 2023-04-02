@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<title>Projeto React Native - README</title>
+<meta charset="utf-8">
 </head>
 <body>
-<h6>📱📝🚀 Projeto React Native - README 🚀📝📱</h6>
+<h1>📱Projeto React Native - Promoday📱</h1>
 
-<p>Este é um projeto em React Native para desenvolvimento de aplicativos móveis para as plataformas Android e iOS.</p>
+<p>🛒O PromoDay é uma aplicação que permite aos usuários compartilhar promoções disponíveis em lojas locais através de um feed de promoções. Ao compartilhar mais promoções, o usuário acumula pontos que podem ser utilizados para obter cupons de desconto.</p>
 
 <h2>Como começar</h2>
 
@@ -25,7 +24,7 @@
 	<li>React Native</li>
 	<li>React Navigation</li>
 	<li>Axios</li>
-	<li>Styled Components</li>
+	<li>Typescript</li>
 </ul>
 
 <h2>Estrutura de arquivos</h2>
