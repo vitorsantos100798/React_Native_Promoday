@@ -5,7 +5,7 @@
 	<title>Projeto React Native - README</title>
 </head>
 <body>
-<h1>📱📝🚀 Projeto React Native - README 🚀📝📱</h1>
+<h6>📱📝🚀 Projeto React Native - README 🚀📝📱</h6>
 
 <p>Este é um projeto em React Native para desenvolvimento de aplicativos móveis para as plataformas Android e iOS.</p>
 
