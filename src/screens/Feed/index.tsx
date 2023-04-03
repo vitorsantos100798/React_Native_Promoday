@@ -11,7 +11,7 @@ import {ScrollCity} from '../../components/ScrollCity';
 
 function Feed({navigation}: NavigateScreenProps) {
   const [modalVisible, setModalVisible] = useState(false);
-
+  const [selectedCity, setSelectedCity] = useState('');
   const toggleModal = () => {
     setModalVisible(!modalVisible);
   };
@@ -28,7 +28,9 @@ function Feed({navigation}: NavigateScreenProps) {
         <View style={styles.containerFlex}>
           <TouchableOpacity onPress={toggleModal} style={styles.containerCity}>
             <Image style={{width: 24, height: 24}} source={cart} />
-            <Text style={styles.title}>Presidente Prudente</Text>
+            <Text style={styles.title}>
+              {selectedCity ? selectedCity : 'Presidente Prudente'}
+            </Text>
             <Image
               style={{height: 16, width: 16, marginTop: 5}}
               source={modalVisible ? triangle : triangleOpen}
@@ -70,7 +72,9 @@ function Feed({navigation}: NavigateScreenProps) {
               <>
                 <TouchableOpacity
                   style={styles.ButtonContainerList}
-                  onPress={toggleModal}
+                  onPress={() => {
+                    toggleModal(), setSelectedCity(item.Nome);
+                  }}
                   activeOpacity={0.6}>
                   <ScrollCity City={item.Nome} />
                 </TouchableOpacity>
