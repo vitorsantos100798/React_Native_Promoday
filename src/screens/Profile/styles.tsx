@@ -1,26 +1,27 @@
 import {StyleSheet} from 'react-native';
 
-export const styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: 'white',
-  },
-  logoContainer: {
+    flex: 1,
+    height: '100%',
     alignItems: 'center',
-    marginTop: '10%',
-  },
-  logo: {
-    width: 200,
-    height: 200,
-  },
-  titleContainer: {
-    alignItems: 'center',
-    marginTop: 40,
+    justifyContent: 'center',
   },
   title: {
-    fontFamily: 'Poppins-Medium',
+    fontFamily: 'Poppins-Bold',
     color: '#DB3026',
     fontSize: 20,
+    marginTop: 20,
+  },
+  emailTitle: {
+    fontFamily: 'Poppins-Light',
+    color: '#000000',
+    fontSize: 16,
+    marginTop: 10,
+  },
+  margin: {
+    marginRight: '10%',
   },
   buttonContainer: {
     alignItems: 'center',
@@ -41,15 +42,6 @@ export const styles = StyleSheet.create({
     fontSize: 20,
     letterSpacing: 1,
   },
-  signupContainer: {
-    alignItems: 'center',
-    marginTop: 20,
-  },
-  signupText: {
-    fontFamily: 'Poppins-Bold',
-    color: '#00000090',
-  },
-  signupTextIntern: {
-    color: '#DB3026',
-  },
 });
+
+export default styles;

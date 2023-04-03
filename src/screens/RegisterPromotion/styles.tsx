@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
   },
   logoContainer: {
     alignItems: 'center',
-    marginTop: '10%',
+    marginTop: '20%',
   },
   logo: {
     width: 200,
@@ -48,8 +48,5 @@ export const styles = StyleSheet.create({
   signupText: {
     fontFamily: 'Poppins-Bold',
     color: '#00000090',
-  },
-  signupTextIntern: {
-    color: '#DB3026',
   },
 });

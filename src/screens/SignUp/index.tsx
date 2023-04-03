@@ -11,12 +11,10 @@ import {
   BackHandler,
 } from 'react-native';
 import {InputLine} from '../../components/InputLine';
+import {NavigateScreenProps} from '../../types/NavigateScreenProps.ts';
 import {styles} from './styles';
-type LoginScreenProps = {
-  navigation: any;
-};
 
-export function SignUp({navigation}: LoginScreenProps) {
+export function SignUp({navigation}: NavigateScreenProps) {
   useFocusEffect(
     React.useCallback(() => {
       const onBackPress = () => {
@@ -33,9 +31,13 @@ export function SignUp({navigation}: LoginScreenProps) {
         BackHandler.removeEventListener('hardwareBackPress', onBackPress);
     }, []),
   );
-  const navigationofSignUp = () => {
+  const navigationSignUp = () => {
     navigation.navigate('login');
   };
+  const navigationoSucess = () => {
+    navigation.navigate('sucessRegistration');
+  };
+
   return (
     <KeyboardAvoidingView
       style={styles.container}
@@ -53,12 +55,15 @@ export function SignUp({navigation}: LoginScreenProps) {
       <InputLine placeholder="Email" />
       <InputLine placeholder="Cidade" />
       <View style={styles.buttonContainer}>
-        <TouchableOpacity activeOpacity={0.8} style={styles.button}>
+        <TouchableOpacity
+          onPress={navigationoSucess}
+          activeOpacity={0.8}
+          style={styles.button}>
           <Text style={styles.buttonText}>Criar</Text>
         </TouchableOpacity>
       </View>
       <View style={styles.signupContainer}>
-        <TouchableOpacity onPress={navigationofSignUp}>
+        <TouchableOpacity onPress={navigationSignUp}>
           <Text style={styles.signupText}>
             Você tem uma conta ?{' '}
             <Text style={styles.signupTextIntern}>entrar</Text>
