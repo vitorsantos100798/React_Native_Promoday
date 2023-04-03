@@ -56,7 +56,7 @@ function Feed({navigation}: NavigateScreenProps) {
 
       <View style={styles.containerBotao}>
         <TouchableOpacity onPress={navigatePromotion}>
-          <Text style={styles.textDivulgue}>DIVULGUE UMA PROMOÇÃO</Text>
+          <Text style={styles.textDivulgue}>Teste de branch no botão</Text>
         </TouchableOpacity>
       </View>
       <AppBar feed={true} />
