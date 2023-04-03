@@ -66,6 +66,7 @@ function Routes() {
           options={{
             title: '',
             headerTransparent: true,
+            headerTintColor: 'white',
           }}
         />
         <Stack.Screen

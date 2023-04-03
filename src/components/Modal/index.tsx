@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Modal, View} from 'react-native';
+import {Modal, View, Image, TouchableOpacity} from 'react-native';
 import styles, {modalStyle} from './styles';
 type ModalType = {
   isVisible: boolean;
