@@ -6,6 +6,8 @@ import AppBar from '../../components/AppBar';
 import {styles} from './styles';
 import {CleanModal} from '../../components/Modal';
 import {FeedData} from '../../mock/feed';
+import {City} from '../../mock/city';
+import {ScrollCity} from '../../components/ScrollCity';
 
 function Feed({navigation}: NavigateScreenProps) {
   const [modalVisible, setModalVisible] = useState(false);
@@ -56,10 +58,26 @@ function Feed({navigation}: NavigateScreenProps) {
         </TouchableOpacity>
       </View>
       <AppBar feed={true} />
-      <CleanModal height={'30%'} isVisible={modalVisible}>
+      <CleanModal height={'20%'} isVisible={modalVisible}>
         <TouchableOpacity onPress={toggleModal} style={styles.closeModal}>
           <Image source={require('../../assets/x.png')} />
         </TouchableOpacity>
+        <FlatList
+          data={City}
+          keyExtractor={item => item.ID}
+          renderItem={({item}) => {
+            return (
+              <>
+                <TouchableOpacity
+                  style={styles.ButtonContainerList}
+                  onPress={toggleModal}
+                  activeOpacity={0.6}>
+                  <ScrollCity City={item.Nome} />
+                </TouchableOpacity>
+              </>
+            );
+          }}
+        />
       </CleanModal>
     </>
   );

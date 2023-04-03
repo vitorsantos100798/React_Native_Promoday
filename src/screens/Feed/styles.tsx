@@ -5,6 +5,13 @@ export const styles = StyleSheet.create({
     backgroundColor: '#DB3026',
     width: '100%',
     height: '7%',
+    // borderBottomRightRadius: 15,
+    // borderBottomLeftRadius: 15,
+  },
+  ButtonContainerList: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   logoContainer: {
     width: '100%',
