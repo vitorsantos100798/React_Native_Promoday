@@ -44,12 +44,17 @@ function RegisterPromotion({navigation}: NavigateScreenProps) {
           style={styles.logo}
         />
       </TouchableOpacity>
-      {/* <View style={styles.titleContainer}>
-        <Text style={styles.title}>Cadastre uma Promoção</Text>
-      </View> */}
-      <Input placeholder="Local" />
-      <Input placeholder="Nome do Produto" />
-      <Input placeholder="Preço" />
+      <View
+        style={{
+          // backgroundColor: 'blue',
+          width: '100%',
+          height: 380,
+        }}>
+        <Input placeholder="Cidade" />
+        <Input placeholder="Local" />
+        <Input placeholder="Nome do Produto" />
+        <Input placeholder="Preço" />
+      </View>
       <View style={styles.buttonContainer}>
         <TouchableOpacity activeOpacity={0.8} style={styles.button}>
           <Text style={styles.buttonText}>Cadastrar</Text>
