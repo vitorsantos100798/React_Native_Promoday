@@ -8,6 +8,7 @@ import {CleanModal} from '../../components/Modal';
 import {FeedData} from '../../mock/feed';
 import {City} from '../../mock/city';
 import {ScrollCity} from '../../components/ScrollCity';
+import {NotPromotion} from '../../components/NotPromotion';
 
 function Feed({navigation}: NavigateScreenProps) {
   const [modalVisible, setModalVisible] = useState(false);
@@ -38,7 +39,7 @@ function Feed({navigation}: NavigateScreenProps) {
           </TouchableOpacity>
         </View>
       </View>
-      <FlatList
+      {/* <FlatList
         data={FeedData}
         keyExtractor={item => item.id}
         renderItem={({item}) => {
@@ -52,8 +53,8 @@ function Feed({navigation}: NavigateScreenProps) {
             />
           );
         }}
-      />
-
+      /> */}
+      <NotPromotion />
       <View style={styles.containerBotao}>
         <TouchableOpacity onPress={navigatePromotion}>
           <Text style={styles.textDivulgue}>DIVULGUE UMA PROMOÇÃO</Text>
