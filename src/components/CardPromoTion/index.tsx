@@ -91,10 +91,7 @@ export const CardPromotion = ({
         <View style={styles.containerProductRange}>
           <Text style={styles.textRangeProduct}>{nameProduct}</Text>
           <TouchableOpacity style={styles.conatinerIconWaze}>
-            <Image
-              style={{tintColor: '#ffffff'}}
-              source={require('../../assets/card/iconWaze.png')}
-            />
+            <Image source={require('../../assets/maps.png')} />
           </TouchableOpacity>
         </View>
         <View style={styles.containerIcons}>
