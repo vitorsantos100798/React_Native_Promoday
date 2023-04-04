@@ -9,7 +9,7 @@ type TypeFeedData = {
 export const FeedData: TypeFeedData = [
   {
     id: '1',
-    nameSupermarketing: 'Super Market',
+    nameSupermarketing: 'Supermercado Estrela',
     price: '7.39',
     nameProduct: ' Fardo de Refrigerante',
     iconSupermarketing:

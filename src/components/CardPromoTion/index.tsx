@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, Image, TouchableOpacity} from 'react-native';
+import {View, Text, Image, TouchableOpacity, Linking} from 'react-native';
 import styles from './styles';
 
 type TypeCardPromotion = {
@@ -8,6 +8,7 @@ type TypeCardPromotion = {
   nameProduct: string;
   imagePromotion: string | undefined;
   iconSupermarketing: string | undefined;
+  locationSupermarket: string;
 };
 export const CardPromotion = ({
   nameSupermarketing,
@@ -15,6 +16,7 @@ export const CardPromotion = ({
   nameProduct,
   imagePromotion,
   iconSupermarketing,
+  locationSupermarket,
 }: TypeCardPromotion) => {
   const [colorDeslike, setColorDeslike] = useState(false);
   const [colorLike, setColorLike] = useState(false);
@@ -23,7 +25,6 @@ export const CardPromotion = ({
   const [counterValid, setCounterValid] = useState(0);
   const [counterInvalid, setCounterInvalid] = useState(0);
   const [counterFinished, setCounterFinished] = useState(0);
-
   const setColorIconLike = () => {
     if (colorLike) {
       setColorLike(false);
@@ -65,7 +66,11 @@ export const CardPromotion = ({
       setCounterInvalid(0);
     }
   };
-
+  const handleOpenMaps = () => {
+    Linking.openURL(
+      `https://www.google.com/maps/search/?api=1&query=${locationSupermarket}`,
+    );
+  };
   return (
     <View style={styles.containerCard}>
       <View style={styles.cardContainer}>
@@ -90,7 +95,9 @@ export const CardPromotion = ({
         </View>
         <View style={styles.containerProductRange}>
           <Text style={styles.textRangeProduct}>{nameProduct}</Text>
-          <TouchableOpacity style={styles.conatinerIconWaze}>
+          <TouchableOpacity
+            onPress={handleOpenMaps}
+            style={styles.conatinerIconWaze}>
             <Image source={require('../../assets/maps.png')} />
           </TouchableOpacity>
         </View>

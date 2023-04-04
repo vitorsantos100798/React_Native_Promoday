@@ -39,7 +39,7 @@ function Feed({navigation}: NavigateScreenProps) {
           </TouchableOpacity>
         </View>
       </View>
-      {/* <FlatList
+      <FlatList
         data={FeedData}
         keyExtractor={item => item.id}
         renderItem={({item}) => {
@@ -50,11 +50,12 @@ function Feed({navigation}: NavigateScreenProps) {
               nameSupermarketing={item.nameSupermarketing}
               iconSupermarketing={item.iconSupermarketing}
               imagePromotion={item.imagePromotion}
+              locationSupermarket={item.nameSupermarketing}
             />
           );
         }}
-      /> */}
-      <NotPromotion />
+      />
+
       <View style={styles.containerBotao}>
         <TouchableOpacity onPress={navigatePromotion}>
           <Text style={styles.textDivulgue}>DIVULGUE UMA PROMOÇÃO</Text>
