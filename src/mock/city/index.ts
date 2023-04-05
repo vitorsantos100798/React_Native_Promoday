@@ -1,7 +1,7 @@
 export const City = [
   {
     ID: '1',
-    Nome: 'Afonso Cláudio',
+    Nome: 'São Paulo',
     Estado: '8',
   },
   {

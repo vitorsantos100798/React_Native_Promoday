@@ -12,7 +12,7 @@ import {NotPromotion} from '../../components/NotPromotion';
 
 function Feed({navigation}: NavigateScreenProps) {
   const [modalVisible, setModalVisible] = useState(false);
-  const [selectedCity, setSelectedCity] = useState('');
+  const [selectedCity, setSelectedCity] = useState('Presidente Prudente');
   const toggleModal = () => {
     setModalVisible(!modalVisible);
   };
@@ -29,9 +29,7 @@ function Feed({navigation}: NavigateScreenProps) {
         <View style={styles.containerFlex}>
           <TouchableOpacity onPress={toggleModal} style={styles.containerCity}>
             <Image style={{width: 24, height: 24}} source={cart} />
-            <Text style={styles.title}>
-              {selectedCity ? selectedCity : 'Presidente Prudente'}
-            </Text>
+            <Text style={styles.title}>{selectedCity}</Text>
             <Image
               style={{height: 16, width: 16, marginTop: 5}}
               source={modalVisible ? triangle : triangleOpen}
@@ -51,6 +49,7 @@ function Feed({navigation}: NavigateScreenProps) {
               iconSupermarketing={item.iconSupermarketing}
               imagePromotion={item.imagePromotion}
               locationSupermarket={item.nameSupermarketing}
+              city={selectedCity}
             />
           );
         }}

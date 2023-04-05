@@ -9,6 +9,7 @@ type TypeCardPromotion = {
   imagePromotion: string | undefined;
   iconSupermarketing: string | undefined;
   locationSupermarket: string;
+  city: string;
 };
 export const CardPromotion = ({
   nameSupermarketing,
@@ -17,6 +18,7 @@ export const CardPromotion = ({
   imagePromotion,
   iconSupermarketing,
   locationSupermarket,
+  city,
 }: TypeCardPromotion) => {
   const [colorDeslike, setColorDeslike] = useState(false);
   const [colorLike, setColorLike] = useState(false);
@@ -68,7 +70,7 @@ export const CardPromotion = ({
   };
   const handleOpenMaps = () => {
     Linking.openURL(
-      `https://www.google.com/maps/search/?api=1&query=${locationSupermarket}`,
+      `https://www.google.com/maps/search/?api=1&query=${locationSupermarket}+em+${city}`,
     );
   };
   return (
