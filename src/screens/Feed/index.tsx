@@ -12,7 +12,7 @@ import {NotPromotion} from '../../components/NotPromotion';
 
 function Feed({navigation}: NavigateScreenProps) {
   const [modalVisible, setModalVisible] = useState(false);
-  const [selectedCity, setSelectedCity] = useState('Presidente Prudente');
+  const [selectedCity, setSelectedCity] = useState('Regente Feijo');
   const toggleModal = () => {
     setModalVisible(!modalVisible);
   };

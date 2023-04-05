@@ -1,12 +1,12 @@
 export const City = [
   {
     ID: '1',
-    Nome: 'São Paulo',
+    Nome: 'Regente Feijo',
     Estado: '8',
   },
   {
     ID: '2',
-    Nome: 'Água Doce do Norte',
+    Nome: 'Presidente Prudente',
     Estado: '8',
   },
   {
