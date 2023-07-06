@@ -51,7 +51,7 @@ function RegisterPromotion({navigation}: NavigateScreenProps) {
           height: 380,
         }}>
         <Input placeholder="Cidade" />
-        <Input placeholder="Estabelecimento" />
+        <Input placeholder="Mercado" />
         <Input placeholder="Produto" />
         <Input placeholder="Preço" />
       </View>

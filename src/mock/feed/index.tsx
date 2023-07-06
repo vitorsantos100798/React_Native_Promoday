@@ -13,7 +13,7 @@ export const FeedData: TypeFeedData = [
     price: '7.39',
     nameProduct: ' Fardo de Refrigerante',
     iconSupermarketing:
-      'https://scontent-gru2-2.xx.fbcdn.net/v/t39.30808-6/271814661_2902583459997041_8655658504887847101_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=xALWdqStPbMAX_ZK0ng&_nc_ht=scontent-gru2-2.xx&oh=00_AfCO1yXJIQ22wEgYJ9PO9adJ1ipt2aZpw7XQdFL9E4L0ng&oe=642DF4C8',
+      'https://scontent-gru1-1.xx.fbcdn.net/v/t39.30808-6/295038792_468405435285672_3123334345081014194_n.png?_nc_cat=110&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=XQssfwnYt-0AX89hkzo&_nc_ht=scontent-gru1-1.xx&oh=00_AfChRDPpf06O5_6-Wli6xWnx97_0FTUC1WcKNsYpJAPaYQ&oe=646BF813',
     imagePromotion:
       'https://vejasp.abril.com.br/wp-content/uploads/2016/11/23755_extra005.jpeg?quality=70&strip=info&w=1280&h=720&crop=1',
   },
@@ -23,9 +23,9 @@ export const FeedData: TypeFeedData = [
     price: '12.99',
     nameProduct: 'Arroz Anceli',
     iconSupermarketing:
-      'https://scontent-gru1-1.xx.fbcdn.net/v/t39.30808-6/303521404_516343340492319_7540057701410799332_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=KuBsFmBq6HEAX9BH-u7&_nc_ht=scontent-gru1-1.xx&oh=00_AfA4n9ybfbNHHgWWBBvHYFioFh0vcKAOJclZyWRra_ZW7A&oe=6431C673',
+      'https://scontent-gru1-1.xx.fbcdn.net/v/t39.30808-6/303521404_516343340492319_7540057701410799332_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=Ik1EsV_RLdUAX_bUYnk&_nc_ht=scontent-gru1-1.xx&oh=00_AfCKOwRN27jmR-iWJy99FYde9H9FFSnlM2Nc9-thvfwFow&oe=646D19F3',
     imagePromotion:
-      'https://sgsistemas.com.br/wp-content/uploads/2020/03/Blog_SG_Sistemas__8.jpg',
+      'https://www.solito.com.br/site/wp-content/uploads/2017/06/mockup_site_arroz-anceli-650x938.png',
   },
   {
     id: '3',
@@ -36,16 +36,6 @@ export const FeedData: TypeFeedData = [
       'https://diariodocomercio.com.br/wp-content/uploads/2018/10/supermercado.jpg',
     iconSupermarketing:
       'https://lh5.googleusercontent.com/p/AF1QipP8zPbhO6Ek-hWP-fYXdz8nFebYUm3jY1ZwpUUF=w169-h250-k-no',
-  },
-  {
-    id: '4',
-    nameSupermarketing: 'Estrela Confort',
-    price: '9.99',
-    nameProduct: 'Feijão',
-    imagePromotion:
-      'https://sgsistemas.com.br/wp-content/uploads/2020/03/Blog_SG_Sistemas__9.jpg',
-    iconSupermarketing:
-      'https://scontent-gru2-2.xx.fbcdn.net/v/t39.30808-6/271814661_2902583459997041_8655658504887847101_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=xALWdqStPbMAX_ZK0ng&_nc_ht=scontent-gru2-2.xx&oh=00_AfCO1yXJIQ22wEgYJ9PO9adJ1ipt2aZpw7XQdFL9E4L0ng&oe=642DF4C8',
   },
   {
     id: '5',
