@@ -21,6 +21,10 @@ const styles = StyleSheet.create({
     fontFamily: 'Arial-Medium',
     color: '#000000',
   },
+  errorText: {
+    color: '#DB3026',
+    marginLeft: 24,
+  },
 });
 
 export default styles;

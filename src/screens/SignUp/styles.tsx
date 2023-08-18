@@ -52,4 +52,7 @@ export const styles = StyleSheet.create({
   signupTextIntern: {
     color: '#DB3026',
   },
+  toast: {
+    marginTop: 30,
+  },
 });
