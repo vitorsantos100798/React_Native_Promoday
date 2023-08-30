@@ -1,23 +1,24 @@
-import React, {createContext, useMemo} from 'react';
-import {
-  SignInCredentials,
-  AuthProviderType,
-  PayloadType,
-  AuthProviderProps,
-} from '../types/typeAuthContext';
+import React, {createContext, useContext, useState, useMemo} from 'react';
+import {TypeAuthContext, AuthProviderProps} from '../types/typeAuthContext';
 
-const AuthContext = createContext({} as AuthProviderType);
+export const AuthContext = createContext<TypeAuthContext | undefined>(
+  undefined,
+);
 
-const AuthProvider = ({children}: AuthProviderProps) => {
-  const authContextData = useMemo(() => {
-    return {};
+export const AuthProvider = ({children}: AuthProviderProps) => {
+  const SignIn = () => {
+    return;
+  };
+
+  const AuthContextData = useMemo(() => {
+    return {
+      SignIn,
+    };
   }, []);
 
   return (
-    <AuthContext.Provider value={authContextData}>
+    <AuthContext.Provider value={AuthContextData}>
       {children}
     </AuthContext.Provider>
   );
 };
-
-export default AuthProvider;

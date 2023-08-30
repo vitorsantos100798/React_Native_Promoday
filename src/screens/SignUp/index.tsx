@@ -87,7 +87,6 @@ export const SignUp = forwardRef(({navigation}: NavigateScreenProps, ref) => {
       }
     },
   });
-  console.log('teste');
   return (
     <KeyboardAvoidingView
       style={styles.container}

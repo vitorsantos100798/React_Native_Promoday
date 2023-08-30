@@ -12,8 +12,13 @@ import {
 import {styles} from './styles';
 import {Input} from '../../components/input/input';
 import {useFocusEffect} from '@react-navigation/native';
+import {useAuth} from '../../hooks/useAuth';
 
 function Login({navigation}: NavigateScreenProps) {
+  const {SignIn} = useAuth();
+
+  console.log(SignIn());
+
   useFocusEffect(
     React.useCallback(() => {
       const onBackPress = () => {

@@ -1,15 +1,11 @@
-export type SignInCredentials = {
-  email: string;
-  password: string;
+export type TypeAuthContext = {
+  SignIn: () => void;
 };
-export type AuthProviderType = {
-  signIn(credentials: SignInCredentials): Promise<PayloadType>;
-  err: string;
-};
-export type PayloadType = {
-  accessToken: string;
-  acessToken: string;
-  expire: string;
+
+export type TypeUser = {
+  user: number;
+  token: string;
+  refleshToken: string;
 };
 
 export type AuthProviderProps = {
