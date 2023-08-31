@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
   defaultColor: {
     width: 24,
     height: 24,
-    tintColor: '#c4c4c4',
+    tintColor: '#000000',
     marginRight: 8,
   },
   activeColor: {
