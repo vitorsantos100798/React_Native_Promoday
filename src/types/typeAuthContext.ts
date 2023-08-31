@@ -1,11 +1,20 @@
 export type TypeAuthContext = {
-  SignIn: () => void;
+  SignIn: (user: User) => TypePayLoadUser;
+  isAuthenticated: boolean;
 };
 
-export type TypeUser = {
+export type User = {
+  email: string;
+  password: string;
+};
+
+export type TypePayLoadUser = {
   user: number;
   token: string;
   refleshToken: string;
+  success: boolean;
+  data: string | undefined;
+  error?: string;
 };
 
 export type AuthProviderProps = {

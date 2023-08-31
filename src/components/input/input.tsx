@@ -1,9 +1,10 @@
 import React from 'react';
-import {View, TextInput, TextInputProps} from 'react-native';
+import {View, TextInput, Text} from 'react-native';
 import {useState} from 'react';
 import styles from './styles';
+import {TypeInputProps} from '../../types/TypeInputs';
 
-export const Input = (props: TextInputProps) => {
+export const Input = ({error, touched, ...props}: TypeInputProps) => {
   const [focused, setFocused] = useState(false);
   const handleFocused = () => {
     setFocused(true);
@@ -20,6 +21,7 @@ export const Input = (props: TextInputProps) => {
         onBlur={handlerBlur}
         {...props}
       />
+      {error && touched && <Text style={styles.errorText}>{error}</Text>}
     </View>
   );
 };

@@ -1,13 +1,9 @@
 import React, {useState} from 'react';
-import {View, TextInput, TextInputProps, Text} from 'react-native';
+import {View, TextInput, Text} from 'react-native';
 import styles from './styles';
+import {TypeInputProps} from '../../types/TypeInputs';
 
-interface InputLineProps extends TextInputProps {
-  error?: string;
-  touched?: boolean;
-}
-
-export const InputLine = ({error, touched, ...props}: InputLineProps) => {
+export const InputLine = ({error, touched, ...props}: TypeInputProps) => {
   const [focused, setFocused] = useState(false);
 
   const handleFocused = () => {

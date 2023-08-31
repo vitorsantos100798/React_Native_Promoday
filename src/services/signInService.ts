@@ -1,9 +1,7 @@
 import api from './api';
-import {typeSignInService} from '../types/typeSignInService';
-export const signInService = async ({email, password}: typeSignInService) => {
-  const response = await api.post('/login', {
-    email: email,
-    password: password,
-  });
+import {User} from '../types/typeAuthContext';
+
+export const signInService = async (objectValues: User) => {
+  const response = await api.post('/login', objectValues);
   return response.data;
 };
