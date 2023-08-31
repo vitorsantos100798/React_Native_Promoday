@@ -46,7 +46,7 @@ export const ListCupons: Cupom[] = [
       'Ganhe 20% de desconto em produtos de limpeza no Atacadão Atacadista',
     codigo: 'ATAC20LIMP',
     image:
-      'https://pbs.twimg.com/profile_images/1642001446089416705/KsyWpxEu_400x400.jpg',
+      'https://scontent-gru2-2.xx.fbcdn.net/v/t39.30808-6/350672443_6527093354020390_6272521105324284870_n.jpg?_nc_cat=1&ccb=1-7&_nc_sid=a2f6c7&_nc_eui2=AeEgd6UHwCBXfwFmBk8fEpHIHkL9O5o3yXYeQv07mjfJdi-ScohRhXGa8SlSM0UKtDi65asHyijUagP2smU9xfZT&_nc_ohc=X1V1CQQ6X1AAX9BeyWV&_nc_ht=scontent-gru2-2.xx&oh=00_AfASg1Ecqzu2z8s5MXlf0K8NLwhHBLPm9OHlXMgTqAOkiA&oe=64F673EC',
     loja: 'Atacadão Atacadista',
     validade: new Date('2023-04-30'),
     desconto: 20,
@@ -56,7 +56,7 @@ export const ListCupons: Cupom[] = [
     descricao: "Ganhe frete grátis em compras acima de R$150 no Sam's Club",
     codigo: 'SAMSFREE150',
     image:
-      'https://scontent-gru2-1.xx.fbcdn.net/v/t1.6435-9/94880841_3087375177967087_5576813767393542144_n.png?_nc_cat=107&ccb=1-7&_nc_sid=174925&_nc_eui2=AeEjUlB_cV5gg_UGObCiJeduyFFkWwdUZjTIUWRbB1RmNEUKR12N_qZaM7pHEiSKofj2HeJXY3B_M3Y64VOxrSbC&_nc_ohc=BG7yQH1G1a0AX9xsnFw&_nc_ht=scontent-gru2-1.xx&oh=00_AfDE8f38_vsf4JQb2pAC1iIwGU361lmSaSY8ItnaoUc8yA&oe=6451D8AE',
+      'https://scontent-gru2-2.xx.fbcdn.net/v/t39.30808-6/350672443_6527093354020390_6272521105324284870_n.jpg?_nc_cat=1&ccb=1-7&_nc_sid=a2f6c7&_nc_eui2=AeEgd6UHwCBXfwFmBk8fEpHIHkL9O5o3yXYeQv07mjfJdi-ScohRhXGa8SlSM0UKtDi65asHyijUagP2smU9xfZT&_nc_ohc=X1V1CQQ6X1AAX9BeyWV&_nc_ht=scontent-gru2-2.xx&oh=00_AfASg1Ecqzu2z8s5MXlf0K8NLwhHBLPm9OHlXMgTqAOkiA&oe=64F673EC',
     loja: "Sam's Club",
     validade: new Date('2023-05-05'),
     desconto: 0,
@@ -77,7 +77,7 @@ export const ListCupons: Cupom[] = [
       'Ganhe 10% de desconto em produtos para animais de estimação no Makro',
     codigo: 'MAKROPET',
     image:
-      'https://scontent-gru1-2.xx.fbcdn.net/v/t1.6435-9/65420762_3336398506373874_4233302388947025920_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=174925&_nc_eui2=AeH9CLEW7dcJSYHJlfPW84ruSvsNBJ4kWP1K-w0EniRY_cN_iveENw0wVkAtMZ4Pu05LT1stiv7wECXlPHQdGmZ2&_nc_ohc=qZseCiNtTk8AX8qOaT-&_nc_ht=scontent-gru1-2.xx&oh=00_AfBkUNYhxY65ZyUH8empe8kGo15e1oa2f5c95pKgLnyK3A&oe=6451B637',
+      'https://123empregos.com.br/wp-content/uploads/2023/01/Makro-Atacadista-150x150.png',
     loja: 'Makro',
     validade: new Date('2023-04-25'),
     desconto: 10,
@@ -119,7 +119,7 @@ export const ListCupons: Cupom[] = [
     codigo: 'ATAC15LIMP',
     loja: 'Atacadão Atacadista',
     image:
-      'https://pbs.twimg.com/profile_images/1642001446089416705/KsyWpxEu_400x400.jpg',
+      'https://scontent-gru2-2.xx.fbcdn.net/v/t39.30808-6/350672443_6527093354020390_6272521105324284870_n.jpg?_nc_cat=1&ccb=1-7&_nc_sid=a2f6c7&_nc_eui2=AeEgd6UHwCBXfwFmBk8fEpHIHkL9O5o3yXYeQv07mjfJdi-ScohRhXGa8SlSM0UKtDi65asHyijUagP2smU9xfZT&_nc_ohc=X1V1CQQ6X1AAX9BeyWV&_nc_ht=scontent-gru2-2.xx&oh=00_AfASg1Ecqzu2z8s5MXlf0K8NLwhHBLPm9OHlXMgTqAOkiA&oe=64F673EC',
     validade: new Date('2023-04-20'),
     desconto: 15,
   },
@@ -128,7 +128,7 @@ export const ListCupons: Cupom[] = [
     descricao: "Ganhe frete grátis em compras acima de R$100 no Sam's Club",
     codigo: 'SAMSFREE100',
     image:
-      'https://scontent-gru2-1.xx.fbcdn.net/v/t1.6435-9/94880841_3087375177967087_5576813767393542144_n.png?_nc_cat=107&ccb=1-7&_nc_sid=174925&_nc_eui2=AeEjUlB_cV5gg_UGObCiJeduyFFkWwdUZjTIUWRbB1RmNEUKR12N_qZaM7pHEiSKofj2HeJXY3B_M3Y64VOxrSbC&_nc_ohc=BG7yQH1G1a0AX9xsnFw&_nc_ht=scontent-gru2-1.xx&oh=00_AfDE8f38_vsf4JQb2pAC1iIwGU361lmSaSY8ItnaoUc8yA&oe=6451D8AE',
+      'https://scontent-gru2-2.xx.fbcdn.net/v/t39.30808-6/350672443_6527093354020390_6272521105324284870_n.jpg?_nc_cat=1&ccb=1-7&_nc_sid=a2f6c7&_nc_eui2=AeEgd6UHwCBXfwFmBk8fEpHIHkL9O5o3yXYeQv07mjfJdi-ScohRhXGa8SlSM0UKtDi65asHyijUagP2smU9xfZT&_nc_ohc=X1V1CQQ6X1AAX9BeyWV&_nc_ht=scontent-gru2-2.xx&oh=00_AfASg1Ecqzu2z8s5MXlf0K8NLwhHBLPm9OHlXMgTqAOkiA&oe=64F673EC',
     loja: "Sam's Club",
     validade: new Date('2023-04-25'),
     desconto: 0,
@@ -149,7 +149,7 @@ export const ListCupons: Cupom[] = [
       'Ganhe 10% de desconto em produtos para animais de estimação no Makro',
     codigo: 'MAKROPET10',
     image:
-      'https://scontent-gru1-2.xx.fbcdn.net/v/t1.6435-9/65420762_3336398506373874_4233302388947025920_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=174925&_nc_eui2=AeH9CLEW7dcJSYHJlfPW84ruSvsNBJ4kWP1K-w0EniRY_cN_iveENw0wVkAtMZ4Pu05LT1stiv7wECXlPHQdGmZ2&_nc_ohc=qZseCiNtTk8AX8qOaT-&_nc_ht=scontent-gru1-2.xx&oh=00_AfBkUNYhxY65ZyUH8empe8kGo15e1oa2f5c95pKgLnyK3A&oe=6451B637',
+      'https://123empregos.com.br/wp-content/uploads/2023/01/Makro-Atacadista-150x150.png',
     loja: 'Makro',
     validade: new Date('2023-05-05'),
     desconto: 10,
@@ -189,7 +189,7 @@ export const ListCupons: Cupom[] = [
     descricao: "Ganhe frete grátis em compras acima de R$200 no Sam's Club",
     codigo: 'SAMSFREE200',
     image:
-      'https://scontent-gru2-1.xx.fbcdn.net/v/t1.6435-9/94880841_3087375177967087_5576813767393542144_n.png?_nc_cat=107&ccb=1-7&_nc_sid=174925&_nc_eui2=AeEjUlB_cV5gg_UGObCiJeduyFFkWwdUZjTIUWRbB1RmNEUKR12N_qZaM7pHEiSKofj2HeJXY3B_M3Y64VOxrSbC&_nc_ohc=BG7yQH1G1a0AX9xsnFw&_nc_ht=scontent-gru2-1.xx&oh=00_AfDE8f38_vsf4JQb2pAC1iIwGU361lmSaSY8ItnaoUc8yA&oe=6451D8AE',
+      'https://scontent-gru2-2.xx.fbcdn.net/v/t39.30808-6/350672443_6527093354020390_6272521105324284870_n.jpg?_nc_cat=1&ccb=1-7&_nc_sid=a2f6c7&_nc_eui2=AeEgd6UHwCBXfwFmBk8fEpHIHkL9O5o3yXYeQv07mjfJdi-ScohRhXGa8SlSM0UKtDi65asHyijUagP2smU9xfZT&_nc_ohc=X1V1CQQ6X1AAX9BeyWV&_nc_ht=scontent-gru2-2.xx&oh=00_AfASg1Ecqzu2z8s5MXlf0K8NLwhHBLPm9OHlXMgTqAOkiA&oe=64F673EC',
     loja: "Sam's Club",
     validade: new Date('2023-07-10'),
     desconto: 0,
@@ -200,7 +200,7 @@ export const ListCupons: Cupom[] = [
       'Ganhe 15% de desconto em produtos de mercearia no Atacadão Atacadista',
     codigo: 'ATAC15MERC',
     image:
-      'https://pbs.twimg.com/profile_images/1642001446089416705/KsyWpxEu_400x400.jpg',
+      'https://scontent-gru2-2.xx.fbcdn.net/v/t39.30808-6/363939688_322230396817518_4734302588178106918_n.jpg?_nc_cat=1&ccb=1-7&_nc_sid=a2f6c7&_nc_eui2=AeG75OZCInZuX4z3BIkvji89X8f8WsUYnmZfx_xaxRieZlZRaXofYuk6oxGYLFa58D0KCCvaqVD4S9dEjMyjYLoH&_nc_ohc=HvwY9rL3-cwAX84X1RG&_nc_ht=scontent-gru2-2.xx&oh=00_AfD_BTt5pJXvzkejCoZYf6G3hbvkpkEcLvcP3ejM5FVzsQ&oe=64F64EFD',
     loja: 'Atacadão Atacadista',
     validade: new Date('2023-07-15'),
     desconto: 15,
@@ -210,7 +210,7 @@ export const ListCupons: Cupom[] = [
     descricao: 'Ganhe 10% de desconto em carnes no Makro',
     codigo: 'MAKROCARNE10',
     image:
-      'https://scontent-gru1-2.xx.fbcdn.net/v/t1.6435-9/65420762_3336398506373874_4233302388947025920_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=174925&_nc_eui2=AeH9CLEW7dcJSYHJlfPW84ruSvsNBJ4kWP1K-w0EniRY_cN_iveENw0wVkAtMZ4Pu05LT1stiv7wECXlPHQdGmZ2&_nc_ohc=qZseCiNtTk8AX8qOaT-&_nc_ht=scontent-gru1-2.xx&oh=00_AfBkUNYhxY65ZyUH8empe8kGo15e1oa2f5c95pKgLnyK3A&oe=6451B637',
+      'https://123empregos.com.br/wp-content/uploads/2023/01/Makro-Atacadista-150x150.png',
     loja: 'Makro',
     validade: new Date('2023-07-20'),
     desconto: 10,

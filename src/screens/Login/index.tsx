@@ -20,7 +20,7 @@ import * as Yup from 'yup';
 
 function Login({navigation}: NavigateScreenProps, ref: any) {
   const [loading, setLoading] = React.useState(false);
-  const {SignIn, isAuthenticated} = useAuth();
+  const {SignIn} = useAuth();
 
   useFocusEffect(
     React.useCallback(() => {
