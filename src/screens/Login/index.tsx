@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {NavigateScreenProps} from '../../types/NavigateScreenProps.ts';
 import {
   Image,
@@ -19,7 +19,7 @@ import Toast from 'react-native-toast-message';
 import * as Yup from 'yup';
 
 function Login({navigation}: NavigateScreenProps, ref: any) {
-  const [loading, setLoading] = React.useState(false);
+  const [loading, setLoading] = useState(false);
   const {SignIn} = useAuth();
 
   useFocusEffect(
