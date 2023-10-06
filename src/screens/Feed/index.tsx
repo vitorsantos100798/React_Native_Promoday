@@ -1,6 +1,13 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {NavigateScreenProps} from '../../types/NavigateScreenProps.ts';
-import {Text, View, Image, TouchableOpacity, FlatList} from 'react-native';
+import {
+  Text,
+  View,
+  Image,
+  TouchableOpacity,
+  FlatList,
+  TextInput,
+} from 'react-native';
 import {CardPromotion} from '../../components/CardPromoTion';
 import AppBar from '../../components/AppBar';
 import {styles} from './styles';
@@ -9,20 +16,55 @@ import {FeedData} from '../../mock/feed';
 import {City} from '../../mock/city';
 import {ScrollCity} from '../../components/ScrollCity';
 import {NotPromotion} from '../../components/NotPromotion';
+import {getCities} from '../../services/getCities';
+import {CitiesObj} from '../../types/cityObj.js';
 
 function Feed({navigation}: NavigateScreenProps) {
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedCity, setSelectedCity] = useState('Regente Feijo');
+  const [cities, setCities] = useState<CitiesObj[]>();
+  const [filteredCities, setFilteredCities] = useState<
+    CitiesObj[] | undefined
+  >();
+  const [searchCity, setSearchCity] = useState('');
+
+  useEffect(() => {
+    HandlerGetCity();
+  }, [selectedCity]);
+
+  const HandlerGetCity = async () => {
+    try {
+      const response = await getCities();
+      setCities(response);
+      setFilteredCities(response);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   const toggleModal = () => {
     setModalVisible(!modalVisible);
   };
+
   const navigatePromotion = () => {
     navigation.navigate('registerPromotion');
+  };
+
+  const handleSearch = (text: string) => {
+    setSearchCity(text);
+    if (text === '') {
+      setFilteredCities(cities);
+    } else {
+      const filtered = cities?.filter(city =>
+        city.Nome.toLowerCase().includes(text.toLowerCase()),
+      );
+      setFilteredCities(filtered);
+    }
   };
   const cart = require('../../assets/cart.png');
   const triangle = require('../../assets/triangle.png');
   const triangleOpen = require('../../assets/triangleOpen.png');
-
+  const search = require('../../assets/search.png');
   return (
     <>
       <View style={styles.container}>
@@ -61,13 +103,25 @@ function Feed({navigation}: NavigateScreenProps) {
         </TouchableOpacity>
       </View>
       <AppBar feed={true} />
-      <CleanModal height={'20%'} isVisible={modalVisible}>
+      <CleanModal height={'50%'} isVisible={modalVisible}>
         <TouchableOpacity onPress={toggleModal} style={styles.closeModal}>
           <Image source={require('../../assets/x.png')} />
         </TouchableOpacity>
+        <View style={{flexDirection: 'row', alignItems: 'center'}}>
+          <TextInput
+            style={styles.searchCity}
+            placeholder="Pesquisar cidade"
+            onChangeText={text => handleSearch(text)}
+            value={searchCity}
+          />
+          <View style={styles.containerImage}>
+            <Image style={styles.image} source={search} />
+          </View>
+        </View>
+
         <FlatList
-          data={City}
-          keyExtractor={item => item.ID}
+          data={filteredCities}
+          keyExtractor={item => item.Id.toString()}
           renderItem={({item}) => {
             return (
               <>

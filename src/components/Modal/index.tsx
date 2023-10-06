@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Modal, View, Image, TouchableOpacity} from 'react-native';
+import {Modal, View, KeyboardAvoidingView} from 'react-native';
 import styles, {modalStyle} from './styles';
 type ModalType = {
   isVisible: boolean;
@@ -17,13 +17,15 @@ export const CleanModal = ({isVisible, children, height}: ModalType) => {
 
   return (
     <Modal animationType="slide" transparent={true} visible={isVisible}>
-      <View style={[styles.container, {height: modalHeight / 2}]}>
+      <KeyboardAvoidingView
+        behavior="padding"
+        style={[styles.container, {height: modalHeight / 2}]}>
         <View
           style={modalStyle({height: height! ?? 200})}
           onLayout={handleLayout}>
           {children}
         </View>
-      </View>
+      </KeyboardAvoidingView>
     </Modal>
   );
 };
