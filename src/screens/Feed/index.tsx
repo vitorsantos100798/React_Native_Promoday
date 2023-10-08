@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   FlatList,
   TextInput,
+  ActivityIndicator,
 } from 'react-native';
 import {CardPromotion} from '../../components/CardPromoTion';
 import AppBar from '../../components/AppBar';
@@ -18,6 +19,9 @@ import {ScrollCity} from '../../components/ScrollCity';
 import {NotPromotion} from '../../components/NotPromotion';
 import {getCities} from '../../services/getCities';
 import {CitiesObj} from '../../types/cityObj.js';
+import {getPromotionByCity} from '../../services/getPromotionByCity';
+
+import {typeCardPromotion} from '../../types/typeCardPromotion';
 
 function Feed({navigation}: NavigateScreenProps) {
   const [modalVisible, setModalVisible] = useState(false);
@@ -27,18 +31,33 @@ function Feed({navigation}: NavigateScreenProps) {
     CitiesObj[] | undefined
   >();
   const [searchCity, setSearchCity] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [promotion, Setpromotion] = useState<typeCardPromotion[]>([]);
+  const [noPromotion, setNoPromotion] = useState(false);
 
   useEffect(() => {
-    HandlerGetCity();
+    handlerGetCity();
+    setSearchCity('');
+    handlerPromotion();
   }, [selectedCity]);
+  console.log(selectedCity);
+  const handlerPromotion = async () => {
+    setLoading(true);
 
-  const HandlerGetCity = async () => {
     try {
-      const response = await getCities();
-      setCities(response);
-      setFilteredCities(response);
+      const response = await getPromotionByCity(selectedCity);
+
+      if (Object.keys(response).length === 0) {
+        setNoPromotion(true);
+        Setpromotion([]);
+      } else {
+        setNoPromotion(false);
+        Setpromotion(response);
+      }
     } catch (error) {
       console.error(error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -61,10 +80,22 @@ function Feed({navigation}: NavigateScreenProps) {
       setFilteredCities(filtered);
     }
   };
+
+  const handlerGetCity = async () => {
+    try {
+      const response = await getCities();
+      setCities(response);
+      setFilteredCities(response);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   const cart = require('../../assets/cart.png');
   const triangle = require('../../assets/triangle.png');
   const triangleOpen = require('../../assets/triangleOpen.png');
   const search = require('../../assets/search.png');
+
   return (
     <>
       <View style={styles.container}>
@@ -79,23 +110,32 @@ function Feed({navigation}: NavigateScreenProps) {
           </TouchableOpacity>
         </View>
       </View>
-      <FlatList
-        data={FeedData}
-        keyExtractor={item => item.id}
-        renderItem={({item}) => {
-          return (
-            <CardPromotion
-              nameProduct={item.nameProduct}
-              price={item.price}
-              nameSupermarketing={item.nameSupermarketing}
-              iconSupermarketing={item.iconSupermarketing}
-              imagePromotion={item.imagePromotion}
-              locationSupermarket={item.nameSupermarketing}
-              city={selectedCity}
-            />
-          );
-        }}
-      />
+
+      {loading ? (
+        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+          <ActivityIndicator size="large" color="#DB3026" />
+        </View>
+      ) : noPromotion ? (
+        <NotPromotion />
+      ) : (
+        <FlatList
+          data={promotion}
+          keyExtractor={item => item.id.toString()}
+          renderItem={({item}) => {
+            return (
+              <CardPromotion
+                nameProduct={item.product}
+                price={item.price}
+                nameSupermarketing={item.establishment}
+                iconSupermarketing={item.iconSupermarketing}
+                imagePromotion={item.promotion_image}
+                locationSupermarket={`${selectedCity}`}
+                city={selectedCity}
+              />
+            );
+          }}
+        />
+      )}
 
       <View style={styles.containerBotao}>
         <TouchableOpacity onPress={navigatePromotion}>

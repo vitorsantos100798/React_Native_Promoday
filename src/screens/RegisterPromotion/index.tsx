@@ -64,7 +64,6 @@ const RegisterPromotion = ({navigation}: NavigateScreenProps, ref: any) => {
 
       setLoading(true);
       if (response) {
-        console.log('LOG', response);
         Toast.show({
           type: 'success',
           text1: response.promotion.message,

@@ -15,9 +15,6 @@ export const NotPromotion = () => {
           <Image source={require('../../assets/iconNotPromotion.png')} />
           <Text style={styles.text}>Infelizmente, não há promoções</Text>
           <Text style={styles.text}>na sua localidade.</Text>
-          <TouchableOpacity onPress={navigatePromotion} style={styles.button}>
-            <Text style={styles.textButton}>Publique Agora</Text>
-          </TouchableOpacity>
         </View>
       </View>
     </>
