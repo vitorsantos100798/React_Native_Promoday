@@ -129,7 +129,7 @@ function Feed({navigation}: NavigateScreenProps) {
                 nameSupermarketing={item.establishment}
                 iconSupermarketing={item.iconSupermarketing}
                 imagePromotion={item.promotion_image}
-                locationSupermarket={`${selectedCity}`}
+                locationSupermarket={item.establishment}
                 city={selectedCity}
               />
             );

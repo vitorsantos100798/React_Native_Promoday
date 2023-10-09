@@ -70,7 +70,7 @@ export const CardPromotion = ({
   };
   const handleOpenMaps = () => {
     Linking.openURL(
-      `https://www.google.com/maps/search/?api=1&query=${locationSupermarket}+em+${city}`,
+      `https://www.google.com/maps/search/?api=1&query=Supermercado${locationSupermarket}+em+${city}`,
     );
   };
   return (
