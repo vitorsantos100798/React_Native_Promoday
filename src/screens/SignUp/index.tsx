@@ -1,4 +1,4 @@
-import React, {forwardRef} from 'react';
+import React, {forwardRef, useState} from 'react';
 import {
   KeyboardAvoidingView,
   Platform,
@@ -8,6 +8,8 @@ import {
   TouchableOpacity,
   BackHandler,
   ActivityIndicator,
+  TextInput,
+  FlatList,
 } from 'react-native';
 import {InputLine} from '../../components/InputLine';
 import {NavigateScreenProps} from '../../types/NavigateScreenProps.ts';
@@ -19,11 +21,24 @@ import {typeError} from '../../types/typeError';
 import * as Yup from 'yup';
 import Toast from 'react-native-toast-message';
 
+import {CleanModal} from '../../components/Modal';
+import {ScrollCity} from '../../components/ScrollCity';
+import {getCities} from '../../services/getCities';
+import {CitiesObj} from '../../types/cityObj.js';
+
 export const SignUp = forwardRef(({navigation}: NavigateScreenProps, ref) => {
-  const [loading, setLoading] = React.useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const [modalVisible, setModalVisible] = useState(false);
+  const [cities, setCities] = useState<CitiesObj[]>();
+  const [filteredCities, setFilteredCities] = useState<
+    CitiesObj[] | undefined
+  >();
+  const [searchCity, setSearchCity] = useState('');
 
   useFocusEffect(
     React.useCallback(() => {
+      handlerGetCity();
       const onBackPress = () => {
         navigation.reset({
           index: 0,
@@ -38,6 +53,34 @@ export const SignUp = forwardRef(({navigation}: NavigateScreenProps, ref) => {
         BackHandler.removeEventListener('hardwareBackPress', onBackPress);
     }, []),
   );
+
+  const toggleModal = () => {
+    setModalVisible(!modalVisible);
+  };
+
+  const handleSearch = (text: string) => {
+    setSearchCity(text);
+    if (text === '') {
+      setFilteredCities(cities);
+    } else {
+      const filtered = cities?.filter(city =>
+        city.Nome.toLowerCase().includes(text.toLowerCase()),
+      );
+      setFilteredCities(filtered);
+    }
+  };
+
+  const handlerGetCity = async () => {
+    try {
+      const response = await getCities();
+      setCities(response);
+      setFilteredCities(response);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const search = require('../../assets/search.png');
 
   const navigationSignUp = () => {
     navigation.navigate('login');
@@ -87,6 +130,7 @@ export const SignUp = forwardRef(({navigation}: NavigateScreenProps, ref) => {
       }
     },
   });
+  console.log(formik.values);
   return (
     <KeyboardAvoidingView
       style={styles.container}
@@ -115,13 +159,15 @@ export const SignUp = forwardRef(({navigation}: NavigateScreenProps, ref) => {
         error={formik.errors.password}
         touched={formik.touched.password}
       />
-      <InputLine
-        value={formik.values.city}
-        onChangeText={value => formik.setFieldValue('city', value)}
-        placeholder="Cidade"
-        error={formik.errors.city}
-        touched={formik.touched.city}
-      />
+      <TouchableOpacity onPress={() => toggleModal()}>
+        <InputLine
+          value={formik.values.city}
+          placeholder="Cidade"
+          error={formik.errors.city}
+          touched={formik.touched.city}
+          editable={false}
+        />
+      </TouchableOpacity>
 
       {loading ? (
         <View>
@@ -146,6 +192,42 @@ export const SignUp = forwardRef(({navigation}: NavigateScreenProps, ref) => {
           </Text>
         </TouchableOpacity>
       </View>
+
+      <CleanModal height={'50%'} isVisible={modalVisible}>
+        <TouchableOpacity onPress={toggleModal} style={styles.closeModal}>
+          <Image source={require('../../assets/x.png')} />
+        </TouchableOpacity>
+        <View style={{flexDirection: 'row', alignItems: 'center'}}>
+          <TextInput
+            style={styles.searchCity}
+            placeholder="Pesquisar cidade"
+            onChangeText={text => handleSearch(text)}
+            value={searchCity}
+          />
+          <View style={styles.containerImage}>
+            <Image style={styles.image} source={search} />
+          </View>
+        </View>
+
+        <FlatList
+          data={filteredCities}
+          keyExtractor={item => item.Id.toString()}
+          renderItem={({item}) => {
+            return (
+              <>
+                <TouchableOpacity
+                  style={styles.ButtonContainerList}
+                  onPress={() => {
+                    toggleModal(), formik.setFieldValue('city', item.Nome);
+                  }}
+                  activeOpacity={0.6}>
+                  <ScrollCity City={item.Nome} />
+                </TouchableOpacity>
+              </>
+            );
+          }}
+        />
+      </CleanModal>
 
       <Toast ref={ref} />
     </KeyboardAvoidingView>

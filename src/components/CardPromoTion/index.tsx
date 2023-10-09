@@ -85,7 +85,9 @@ export const CardPromotion = ({
               style={styles.iconSupermarketing}
             />
           </View>
-          <Text style={styles.titleNameSupermarkt}>{nameSupermarketing}</Text>
+          <Text style={styles.titleNameSupermarkt}>
+            Supermercado {nameSupermarketing}
+          </Text>
         </View>
         <View style={styles.containerImagePromotion}>
           <Image

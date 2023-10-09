@@ -123,7 +123,7 @@ const RegisterPromotion = ({navigation}: NavigateScreenProps, ref: any) => {
           onChangeText={value => formik.setFieldValue('city', value)}
         />
         <Input
-          placeholder="Mercado"
+          placeholder="Nome do Mercado"
           onChangeText={value =>
             formik.setFieldValue('nameSupermarketing', value)
           }
