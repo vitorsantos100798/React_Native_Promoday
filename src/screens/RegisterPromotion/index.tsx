@@ -38,9 +38,10 @@ const RegisterPromotion = ({navigation}: NavigateScreenProps, ref: any) => {
 
     if (camera?.assets && camera.assets.length > 0) {
       const image = camera.assets[0].uri;
-      const photoData = camera.assets[0].base64;
+      const photoDataBase64 = camera.assets[0].base64;
+
       setPhoto(image);
-      formik.setFieldValue('imagePromotion', image);
+      formik.setFieldValue('imagePromotion', photoDataBase64);
     }
   };
   const initialValues = {
@@ -114,7 +115,6 @@ const RegisterPromotion = ({navigation}: NavigateScreenProps, ref: any) => {
       </TouchableOpacity>
       <View
         style={{
-          // backgroundColor: 'blue',
           width: '100%',
           height: 380,
         }}>

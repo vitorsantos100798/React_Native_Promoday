@@ -25,7 +25,7 @@ import {typeCardPromotion} from '../../types/typeCardPromotion';
 
 function Feed({navigation}: NavigateScreenProps) {
   const [modalVisible, setModalVisible] = useState(false);
-  const [selectedCity, setSelectedCity] = useState('Regente Feijo');
+  const [selectedCity, setSelectedCity] = useState('Regente Feijó');
   const [cities, setCities] = useState<CitiesObj[]>();
   const [filteredCities, setFilteredCities] = useState<
     CitiesObj[] | undefined
