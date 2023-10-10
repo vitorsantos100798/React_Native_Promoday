@@ -7,13 +7,21 @@ import {
   TouchableOpacity,
   FlatList,
   TextInput,
+  ActivityIndicator,
 } from 'react-native';
-
+import {CardPromotion} from '../../components/CardPromoTion';
+import AppBar from '../../components/AppBar';
 import {styles} from './styles';
 import {CleanModal} from '../../components/Modal';
+import {FeedData} from '../../mock/feed';
+import {City} from '../../mock/city';
 import {ScrollCity} from '../../components/ScrollCity';
+import {NotPromotion} from '../../components/NotPromotion';
 import {getCities} from '../../services/getCities';
 import {CitiesObj} from '../../types/cityObj.js';
+import {getPromotionByCity} from '../../services/getPromotionByCity';
+
+import {typeCardPromotion} from '../../types/typeCardPromotion';
 
 function Feed({navigation}: NavigateScreenProps) {
   const [modalVisible, setModalVisible] = useState(false);
@@ -23,14 +31,42 @@ function Feed({navigation}: NavigateScreenProps) {
     CitiesObj[] | undefined
   >();
   const [searchCity, setSearchCity] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [promotion, Setpromotion] = useState<typeCardPromotion[]>([]);
+  const [noPromotion, setNoPromotion] = useState(false);
 
   useEffect(() => {
     handlerGetCity();
     setSearchCity('');
+    handlerPromotion();
   }, [selectedCity]);
+  console.log(selectedCity);
+  const handlerPromotion = async () => {
+    setLoading(true);
+
+    try {
+      const response = await getPromotionByCity(selectedCity);
+
+      if (Object.keys(response).length === 0) {
+        setNoPromotion(true);
+        Setpromotion([]);
+      } else {
+        setNoPromotion(false);
+        Setpromotion(response);
+      }
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const toggleModal = () => {
     setModalVisible(!modalVisible);
+  };
+
+  const navigatePromotion = () => {
+    navigation.navigate('registerPromotion');
   };
 
   const handleSearch = (text: string) => {
@@ -75,6 +111,38 @@ function Feed({navigation}: NavigateScreenProps) {
         </View>
       </View>
 
+      {loading ? (
+        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+          <ActivityIndicator size="large" color="#DB3026" />
+        </View>
+      ) : noPromotion ? (
+        <NotPromotion />
+      ) : (
+        <FlatList
+          data={promotion}
+          keyExtractor={item => item.id.toString()}
+          renderItem={({item}) => {
+            return (
+              <CardPromotion
+                nameProduct={item.product}
+                price={item.price}
+                nameSupermarketing={item.establishment}
+                iconSupermarketing={item.iconSupermarketing}
+                imagePromotion={item.promotion_image}
+                locationSupermarket={`${selectedCity}`}
+                city={selectedCity}
+              />
+            );
+          }}
+        />
+      )}
+
+      <View style={styles.containerBotao}>
+        <TouchableOpacity onPress={navigatePromotion}>
+          <Text style={styles.textDivulgue}>DIVULGUE UMA PROMOÇÃO</Text>
+        </TouchableOpacity>
+      </View>
+      <AppBar feed={true} />
       <CleanModal height={'50%'} isVisible={modalVisible}>
         <TouchableOpacity onPress={toggleModal} style={styles.closeModal}>
           <Image source={require('../../assets/x.png')} />
