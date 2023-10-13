@@ -80,7 +80,9 @@ export const CardPromotion = ({
           <View style={styles.containerImage}>
             <Image
               source={{
-                uri: iconSupermarketing,
+                uri: iconSupermarketing
+                  ? iconSupermarketing
+                  : 'https://travelpedia.com.br/wp-content/uploads/2018/01/supermercado-icon.jpg',
               }}
               style={styles.iconSupermarketing}
             />

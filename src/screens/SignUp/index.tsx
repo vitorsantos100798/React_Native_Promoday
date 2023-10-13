@@ -130,7 +130,6 @@ export const SignUp = forwardRef(({navigation}: NavigateScreenProps, ref) => {
       }
     },
   });
-  console.log(formik.values);
   return (
     <KeyboardAvoidingView
       style={styles.container}

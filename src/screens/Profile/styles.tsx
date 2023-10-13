@@ -42,6 +42,14 @@ const styles = StyleSheet.create({
     fontSize: 20,
     letterSpacing: 1,
   },
+  logo: {
+    width: 200,
+    height: 200,
+    borderRadius: 200,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 });
 
 export default styles;

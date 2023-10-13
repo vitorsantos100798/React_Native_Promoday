@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import {NavigateScreenProps} from '../../types/NavigateScreenProps.ts';
 import {
   Image,
@@ -9,6 +9,8 @@ import {
   Platform,
   BackHandler,
   ActivityIndicator,
+  TextInput,
+  FlatList,
 } from 'react-native';
 import {styles} from './styles';
 import {Input} from '../../components/input/input';
@@ -23,10 +25,71 @@ import {
 } from 'react-native-image-picker';
 import Toast from 'react-native-toast-message';
 
+import {CitiesObj} from '../../types/cityObj';
+import {getCities} from '../../services/getCities';
+import {CleanModal} from '../../components/Modal/index';
+import {ScrollCity} from '../../components/ScrollCity/index';
+
 const RegisterPromotion = ({navigation}: NavigateScreenProps, ref: any) => {
   const [photo, setPhoto] = useState<string>();
   const [loading, setLoading] = useState(false);
   const photoDefault = require('../../assets/productphoto.png');
+
+  const [modalVisible, setModalVisible] = useState(false);
+  const [cities, setCities] = useState<CitiesObj[]>();
+  const [filteredCities, setFilteredCities] = useState<
+    CitiesObj[] | undefined
+  >();
+  const [searchCity, setSearchCity] = useState('');
+
+  useEffect(() => {
+    handlerGetCity();
+  }, []);
+
+  useFocusEffect(
+    useCallback(() => {
+      const onBackPress = () => {
+        navigation.reset({
+          index: 0,
+          routes: [{name: 'login'}],
+        });
+        return true;
+      };
+
+      BackHandler.addEventListener('hardwareBackPress', onBackPress);
+
+      return () =>
+        BackHandler.removeEventListener('hardwareBackPress', onBackPress);
+    }, []),
+  );
+
+  const toggleModal = () => {
+    setModalVisible(!modalVisible);
+  };
+
+  const handleSearch = (text: string) => {
+    setSearchCity(text);
+    if (text === '') {
+      setFilteredCities(cities);
+    } else {
+      const filtered = cities?.filter(city =>
+        city.Nome.toLowerCase().includes(text.toLowerCase()),
+      );
+      setFilteredCities(filtered);
+    }
+  };
+
+  const handlerGetCity = async () => {
+    try {
+      const response = await getCities();
+      setCities(response);
+      setFilteredCities(response);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const search = require('../../assets/search.png');
 
   const pickerImageCamera = async () => {
     const options: CameraOptions = {
@@ -81,26 +144,10 @@ const RegisterPromotion = ({navigation}: NavigateScreenProps, ref: any) => {
     }
   };
 
-  useFocusEffect(
-    useCallback(() => {
-      const onBackPress = () => {
-        navigation.reset({
-          index: 0,
-          routes: [{name: 'login'}],
-        });
-        return true;
-      };
-
-      BackHandler.addEventListener('hardwareBackPress', onBackPress);
-
-      return () =>
-        BackHandler.removeEventListener('hardwareBackPress', onBackPress);
-    }, []),
-  );
-
   const navigationoFeed = () => {
     navigation.navigate('feed');
   };
+
   return (
     <KeyboardAvoidingView
       style={styles.container}
@@ -118,10 +165,13 @@ const RegisterPromotion = ({navigation}: NavigateScreenProps, ref: any) => {
           width: '100%',
           height: 380,
         }}>
-        <Input
-          placeholder="Cidade"
-          onChangeText={value => formik.setFieldValue('city', value)}
-        />
+        <TouchableOpacity onPress={() => toggleModal()}>
+          <Input
+            value={formik.values.city}
+            placeholder="Cidade"
+            editable={false}
+          />
+        </TouchableOpacity>
         <Input
           placeholder="Nome do Mercado"
           onChangeText={value =>
@@ -151,6 +201,43 @@ const RegisterPromotion = ({navigation}: NavigateScreenProps, ref: any) => {
           </TouchableOpacity>
         )}
       </View>
+
+      <CleanModal height={'50%'} isVisible={modalVisible}>
+        <TouchableOpacity onPress={toggleModal} style={styles.closeModal}>
+          <Image source={require('../../assets/x.png')} />
+        </TouchableOpacity>
+        <View style={{flexDirection: 'row', alignItems: 'center'}}>
+          <TextInput
+            style={styles.searchCity}
+            placeholder="Pesquisar cidade"
+            onChangeText={text => handleSearch(text)}
+            value={searchCity}
+          />
+          <View style={styles.containerImage}>
+            <Image style={styles.image} source={search} />
+          </View>
+        </View>
+
+        <FlatList
+          data={filteredCities}
+          keyExtractor={item => item.Id.toString()}
+          renderItem={({item}) => {
+            return (
+              <>
+                <TouchableOpacity
+                  style={styles.ButtonContainerList}
+                  onPress={() => {
+                    toggleModal(), formik.setFieldValue('city', item.Nome);
+                  }}
+                  activeOpacity={0.6}>
+                  <ScrollCity City={item.Nome} />
+                </TouchableOpacity>
+              </>
+            );
+          }}
+        />
+      </CleanModal>
+
       <Toast ref={ref} />
     </KeyboardAvoidingView>
   );

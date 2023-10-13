@@ -12,6 +12,7 @@ export const styles = StyleSheet.create({
   logo: {
     width: 200,
     height: 200,
+    borderRadius: 20,
   },
   titleContainer: {
     alignItems: 'center',
@@ -49,5 +50,40 @@ export const styles = StyleSheet.create({
   signupText: {
     fontFamily: 'Poppins-Bold',
     color: '#00000090',
+  },
+  closeModal: {
+    width: '100%',
+    display: 'flex',
+    alignItems: 'flex-end',
+  },
+  containerImage: {
+    height: 41,
+    width: 30,
+    borderBottomWidth: 1,
+    borderColor: 'red',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  searchCity: {
+    width: '68%',
+    height: 50,
+    marginTop: 10,
+    marginLeft: 40,
+    marginBottom: 20,
+    fontFamily: 'Poppins-SemiBold',
+    borderBottomWidth: 1.3,
+    color: '#666',
+    borderColor: '#DB3026',
+  },
+  image: {
+    height: 18,
+    width: 18,
+    tintColor: '#DB3026',
+  },
+  ButtonContainerList: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });

@@ -13,8 +13,6 @@ import {CardPromotion} from '../../components/CardPromoTion';
 import AppBar from '../../components/AppBar';
 import {styles} from './styles';
 import {CleanModal} from '../../components/Modal';
-import {FeedData} from '../../mock/feed';
-import {City} from '../../mock/city';
 import {ScrollCity} from '../../components/ScrollCity';
 import {NotPromotion} from '../../components/NotPromotion';
 import {getCities} from '../../services/getCities';
@@ -25,7 +23,7 @@ import {typeCardPromotion} from '../../types/typeCardPromotion';
 
 function Feed({navigation}: NavigateScreenProps) {
   const [modalVisible, setModalVisible] = useState(false);
-  const [selectedCity, setSelectedCity] = useState('Regente Feijo');
+  const [selectedCity, setSelectedCity] = useState('Regente Feijó');
   const [cities, setCities] = useState<CitiesObj[]>();
   const [filteredCities, setFilteredCities] = useState<
     CitiesObj[] | undefined
@@ -40,7 +38,7 @@ function Feed({navigation}: NavigateScreenProps) {
     setSearchCity('');
     handlerPromotion();
   }, [selectedCity]);
-  console.log(selectedCity);
+
   const handlerPromotion = async () => {
     setLoading(true);
 
