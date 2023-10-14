@@ -116,12 +116,17 @@ const styles = StyleSheet.create({
     color: '#828282',
     fontFamily: 'Poppins-SemiBold',
   },
-  containerPrice: {},
   titlePrice: {
     fontSize: 16,
     lineHeight: 20,
     fontFamily: 'Poppins-Bold',
     color: '#DB3026',
+  },
+  data: {
+    fontFamily: 'Poppins-SemiBold',
+    fontSize: 12,
+    marginTop: 3,
+    color: '#000000dd',
   },
 });
 

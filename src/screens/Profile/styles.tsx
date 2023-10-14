@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
     color: '#000000',
     fontSize: 16,
     marginTop: 10,
+    marginRight: 20,
   },
   margin: {
     marginRight: '10%',
@@ -49,6 +50,15 @@ const styles = StyleSheet.create({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  location: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    display: 'flex',
+  },
+  image: {
+    marginTop: 10,
   },
 });
 

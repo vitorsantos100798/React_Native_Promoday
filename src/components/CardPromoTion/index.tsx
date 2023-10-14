@@ -10,6 +10,7 @@ type TypeCardPromotion = {
   iconSupermarketing: string | undefined;
   locationSupermarket: string;
   city: string;
+  createdAt: string;
 };
 export const CardPromotion = ({
   nameSupermarketing,
@@ -19,6 +20,7 @@ export const CardPromotion = ({
   iconSupermarketing,
   locationSupermarket,
   city,
+  createdAt,
 }: TypeCardPromotion) => {
   const [colorDeslike, setColorDeslike] = useState(false);
   const [colorLike, setColorLike] = useState(false);
@@ -149,8 +151,9 @@ export const CardPromotion = ({
               <Text style={styles.titleIcons}>Acabou</Text>
             </View>
           </View>
-          <View style={styles.containerPrice}>
+          <View>
             <Text style={styles.titlePrice}>R$ {price}</Text>
+            <Text style={styles.data}>{createdAt}</Text>
           </View>
         </View>
       </View>

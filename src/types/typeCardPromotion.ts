@@ -5,4 +5,5 @@ export type typeCardPromotion = {
   product: string;
   price: string;
   iconSupermarketing?: string;
+  createdAt: string;
 };

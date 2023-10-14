@@ -12,20 +12,43 @@ import {useFormik} from 'formik';
 import {CameraOptions, launchCamera} from 'react-native-image-picker';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {photoProfileService} from '../../services/photoProfile';
+import {getInfoUser} from '../../services/getInfoUser';
+
 import Toast from 'react-native-toast-message';
+import {typeInfoUser} from '../../types/typeInfoUser';
 
 const Profile = ({navigation}: NavigateScreenProps, ref: any) => {
   const [loading, setLoading] = useState(false);
   const [photo, setPhoto] = useState<string>();
+  const [user, setUser] = useState<typeInfoUser[]>([]);
+
+  const iconLocation = require('../../assets/maps.png');
 
   useEffect(() => {
-    getUserFromAsyncStorage();
+    GetInfoUserData();
   }, []);
+
+  const GetInfoUserData = async function fetchData() {
+    setLoading(true);
+    const getId = await getUserFromAsyncStorage();
+    const infoUser = await getInfoUser(String(getId));
+
+    if (infoUser) {
+      setUser(infoUser);
+      const userPhoto = infoUser[0].profileImage;
+      if (userPhoto) {
+        setPhoto(userPhoto);
+      }
+    }
+
+    setLoading(false);
+  };
 
   const getUserFromAsyncStorage = async () => {
     const userString = await AsyncStorage.getItem('user');
     if (userString) {
       formik.setFieldValue('id', userString);
+      return userString;
     } else {
       console.error('Erro ao recuperar o valor do usuário do AsyncStorage:');
     }
@@ -37,7 +60,6 @@ const Profile = ({navigation}: NavigateScreenProps, ref: any) => {
     setLoading(true);
 
     const response = await photoProfileService(formik.values);
-
     if (response) {
       setPhoto(response);
       setLoading(false);
@@ -100,8 +122,11 @@ const Profile = ({navigation}: NavigateScreenProps, ref: any) => {
         )}
       </TouchableOpacity>
 
-      {/* <Text style={styles.title}>Vitor Santos</Text> */}
-      <Text style={styles.emailTitle}>vitorinacio@gmail.com</Text>
+      <View style={styles.location}>
+        <Text style={styles.title}>{user.map(item => item.city)}</Text>
+        <Image style={styles.image} source={iconLocation} />
+      </View>
+      <Text style={styles.emailTitle}>{user.map(item => item.email)}</Text>
 
       <View style={styles.buttonContainer}>
         <TouchableOpacity

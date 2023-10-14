@@ -58,6 +58,7 @@ function Feed({navigation}: NavigateScreenProps) {
       setLoading(false);
     }
   };
+  console.log(promotion);
 
   const toggleModal = () => {
     setModalVisible(!modalVisible);
@@ -129,6 +130,7 @@ function Feed({navigation}: NavigateScreenProps) {
                 imagePromotion={item.promotion_image}
                 locationSupermarket={`${selectedCity}`}
                 city={selectedCity}
+                createdAt={item.createdAt}
               />
             );
           }}
