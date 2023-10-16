@@ -14,7 +14,7 @@ import {
 } from 'react-native';
 import {styles} from './styles';
 import {Input} from '../../components/input/input';
-import {useFocusEffect} from '@react-navigation/native';
+import {CommonActions, useFocusEffect} from '@react-navigation/native';
 import {registerPromotionService} from '../../services/registerPromotionService';
 import {useFormik} from 'formik';
 
@@ -134,7 +134,7 @@ const RegisterPromotion = ({navigation}: NavigateScreenProps, ref: any) => {
           visibilityTime: 3000,
           autoHide: true,
         });
-        setTimeout(() => navigationoFeed(), 3000);
+        setTimeout(() => navigateFeed(), 3000);
       }
     } catch (error) {
       console.error(error);
@@ -144,8 +144,13 @@ const RegisterPromotion = ({navigation}: NavigateScreenProps, ref: any) => {
     }
   };
 
-  const navigationoFeed = () => {
-    navigation.navigate('feed');
+  const navigateFeed = () => {
+    navigation.dispatch(
+      CommonActions.reset({
+        index: 0,
+        routes: [{name: 'feed'}],
+      }),
+    );
   };
 
   return (

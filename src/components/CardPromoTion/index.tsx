@@ -8,7 +8,6 @@ type TypeCardPromotion = {
   nameProduct: string;
   imagePromotion: string | undefined;
   iconSupermarketing: string | undefined;
-  locationSupermarket: string;
   city: string;
   createdAt: string;
 };
@@ -18,7 +17,6 @@ export const CardPromotion = ({
   nameProduct,
   imagePromotion,
   iconSupermarketing,
-  locationSupermarket,
   city,
   createdAt,
 }: TypeCardPromotion) => {
@@ -72,7 +70,7 @@ export const CardPromotion = ({
   };
   const handleOpenMaps = () => {
     Linking.openURL(
-      `https://www.google.com/maps/search/?api=1&query=Supermercado${locationSupermarket}+em+${city}`,
+      `https://www.google.com/maps/search/?api=1&query=Supermercado${nameSupermarketing}+em+${city}`,
     );
   };
   return (

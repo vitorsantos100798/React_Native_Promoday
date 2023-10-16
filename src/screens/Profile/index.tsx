@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+
 import {NavigateScreenProps} from '../../types/NavigateScreenProps.ts';
 import {
   Text,
@@ -16,6 +17,8 @@ import {getInfoUser} from '../../services/getInfoUser';
 
 import Toast from 'react-native-toast-message';
 import {typeInfoUser} from '../../types/typeInfoUser';
+import AppBar from '../../components/AppBar/index';
+import {useAuth} from '../../hooks/useAuth';
 
 const Profile = ({navigation}: NavigateScreenProps, ref: any) => {
   const [loading, setLoading] = useState(false);
@@ -23,7 +26,7 @@ const Profile = ({navigation}: NavigateScreenProps, ref: any) => {
   const [user, setUser] = useState<typeInfoUser[]>([]);
 
   const iconLocation = require('../../assets/maps.png');
-
+  const {setIsAuthenticated} = useAuth();
   useEffect(() => {
     GetInfoUserData();
   }, []);
@@ -103,8 +106,14 @@ const Profile = ({navigation}: NavigateScreenProps, ref: any) => {
     onSubmit: () => {},
   });
 
-  const navigateLogin = () => {
-    navigation.navigate('login');
+  const navigateLogin = async () => {
+    try {
+      await AsyncStorage.clear();
+      setIsAuthenticated(false);
+      navigation.navigate('login');
+    } catch (error) {
+      console.error('Erro ao limpar o AsyncStorage:', error);
+    }
   };
 
   return (
@@ -137,6 +146,7 @@ const Profile = ({navigation}: NavigateScreenProps, ref: any) => {
         </TouchableOpacity>
       </View>
       <Toast ref={ref} />
+      {/* <AppBar style={{marginTop: 100}} club={true} /> */}
     </View>
   );
 };

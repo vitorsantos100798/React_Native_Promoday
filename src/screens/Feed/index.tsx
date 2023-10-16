@@ -11,19 +11,21 @@ import {
 } from 'react-native';
 import {CardPromotion} from '../../components/CardPromoTion';
 import AppBar from '../../components/AppBar';
+import {TabNavigator} from '../../routes/stack/index';
 import {styles} from './styles';
 import {CleanModal} from '../../components/Modal';
 import {ScrollCity} from '../../components/ScrollCity';
 import {NotPromotion} from '../../components/NotPromotion';
 import {getCities} from '../../services/getCities';
-import {CitiesObj} from '../../types/cityObj.js';
+import {CitiesObj} from '../../types/cityObj';
 import {getPromotionByCity} from '../../services/getPromotionByCity';
-
 import {typeCardPromotion} from '../../types/typeCardPromotion';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {NavigationContainer} from '@react-navigation/native';
 
 function Feed({navigation}: NavigateScreenProps) {
   const [modalVisible, setModalVisible] = useState(false);
-  const [selectedCity, setSelectedCity] = useState('Regente Feijó');
+  const [selectedCity, setSelectedCity] = useState('');
   const [cities, setCities] = useState<CitiesObj[]>();
   const [filteredCities, setFilteredCities] = useState<
     CitiesObj[] | undefined
@@ -34,9 +36,17 @@ function Feed({navigation}: NavigateScreenProps) {
   const [noPromotion, setNoPromotion] = useState(false);
 
   useEffect(() => {
-    handlerGetCity();
-    setSearchCity('');
-    handlerPromotion();
+    if (!selectedCity) {
+      (async () => {
+        const city = await AsyncStorage.getItem('city');
+        setSelectedCity(String(city));
+      })();
+    }
+    if (selectedCity) {
+      handlerGetCity();
+      setSearchCity('');
+      handlerPromotion();
+    }
   }, [selectedCity]);
 
   const handlerPromotion = async () => {
@@ -58,7 +68,6 @@ function Feed({navigation}: NavigateScreenProps) {
       setLoading(false);
     }
   };
-  console.log(promotion);
 
   const toggleModal = () => {
     setModalVisible(!modalVisible);
@@ -128,7 +137,6 @@ function Feed({navigation}: NavigateScreenProps) {
                 nameSupermarketing={item.establishment}
                 iconSupermarketing={item.iconSupermarketing}
                 imagePromotion={item.promotion_image}
-                locationSupermarket={`${selectedCity}`}
                 city={selectedCity}
                 createdAt={item.createdAt}
               />
@@ -143,6 +151,7 @@ function Feed({navigation}: NavigateScreenProps) {
         </TouchableOpacity>
       </View>
       <AppBar feed={true} />
+
       <CleanModal height={'50%'} isVisible={modalVisible}>
         <TouchableOpacity onPress={toggleModal} style={styles.closeModal}>
           <Image source={require('../../assets/x.png')} />

@@ -1,6 +1,7 @@
 export type TypeAuthContext = {
   SignIn: (user: User) => TypePayLoadUser;
-  isAuthenticated: boolean;
+  isAuthenticated: boolean | undefined;
+  setIsAuthenticated: () => void;
 };
 
 export type User = {
@@ -15,6 +16,7 @@ export type TypePayLoadUser = {
   success: boolean;
   data: string | undefined;
   error?: string;
+  city: string;
 };
 
 export type AuthProviderProps = {

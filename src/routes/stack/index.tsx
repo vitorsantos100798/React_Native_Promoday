@@ -9,10 +9,12 @@ import Profile from '../../screens/Profile';
 import RegisterPromotion from '../../screens/RegisterPromotion';
 import Feed from '../../screens/Feed';
 import {Club} from '../../screens/Club';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {NavigationContainer} from '@react-navigation/native';
 
 const Stack = createNativeStackNavigator();
-
-function Routes() {
+const Tab = createBottomTabNavigator();
+export function Routes() {
   return (
     <ContainerNavigation>
       <Stack.Navigator initialRouteName="splash">
@@ -91,5 +93,14 @@ function Routes() {
     </ContainerNavigation>
   );
 }
-
-export default Routes;
+export function TabNavigator() {
+  return (
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name="feed" component={Feed} />
+        <Tab.Screen name="club" component={Club} />
+        <Tab.Screen name="profile" component={Profile} />
+      </Tab.Navigator>
+    </NavigationContainer>
+  );
+}

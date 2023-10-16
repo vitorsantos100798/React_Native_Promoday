@@ -14,15 +14,17 @@ export const AuthContext = createContext<TypeAuthContext | undefined>(
 );
 
 export const AuthProvider = ({children}: AuthProviderProps) => {
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>();
 
   const SignIn = async (objectValues: User) => {
     try {
       const response: Promise<TypePayLoadUser> = await signInService(
         objectValues,
       );
+
       const dataToStore: [string, string][] = [
         ['user', (await response).user.toString()],
+        ['city', (await response).city],
         ['token', (await response).token],
         ['refreshToken', (await response).refleshToken],
       ];
@@ -33,6 +35,7 @@ export const AuthProvider = ({children}: AuthProviderProps) => {
       return {
         success: true,
         data: response,
+        auth: true,
       };
     } catch (error: any) {
       if (error.response) {
@@ -50,8 +53,9 @@ export const AuthProvider = ({children}: AuthProviderProps) => {
     return {
       SignIn,
       isAuthenticated,
+      setIsAuthenticated,
     };
-  }, []);
+  }, [SignIn, isAuthenticated, setIsAuthenticated]);
 
   return (
     <AuthContext.Provider value={AuthContextData}>
