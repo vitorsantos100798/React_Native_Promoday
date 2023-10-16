@@ -10,14 +10,104 @@ import RegisterPromotion from '../../screens/RegisterPromotion';
 import Feed from '../../screens/Feed';
 import {Club} from '../../screens/Club';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {NavigationContainer} from '@react-navigation/native';
+import {Image} from 'react-native';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
+
+export function TabNavigator() {
+  return (
+    <Tab.Navigator
+      screenOptions={({route}) => ({
+        headerShown: false,
+        headerTransparent: true,
+        tabBarLabelStyle: {
+          fontSize: 14,
+        },
+        tabBarStyle: {
+          backgroundColor: '#ffffff',
+          width: '100%',
+          height: '7%',
+          borderTopWidth: 0.5,
+          borderTopColor: 'grey',
+        },
+        tabBarActiveTintColor: 'grey',
+      })}>
+      <Tab.Screen
+        name="feed"
+        component={Feed}
+        options={{
+          tabBarLabel: 'Feed',
+          tabBarIcon: ({focused, color, size}) => (
+            <Image
+              style={{
+                tintColor: focused ? '#DB3026' : '#D3D3D3',
+              }}
+              source={require('../../assets/iconFeed.png')}
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="club"
+        component={Club}
+        options={{
+          tabBarLabel: 'Club',
+          tabBarIcon: ({focused, color, size}) => (
+            <Image
+              style={{
+                tintColor: focused ? '#DB3026' : '#D3D3D3',
+              }}
+              source={require('../../assets/iconClub.png')}
+            />
+          ),
+        }}
+      />
+
+      <Tab.Screen
+        name="profile"
+        component={Profile}
+        options={{
+          tabBarLabel: 'Perfil',
+          tabBarIcon: ({focused, color, size}) => (
+            <Image
+              style={{
+                tintColor: focused ? '#DB3026' : '#D3D3D3',
+              }}
+              source={require('../../assets/iconProfileTwo.png')}
+            />
+          ),
+        }}
+      />
+    </Tab.Navigator>
+  );
+}
+
 export function Routes() {
   return (
     <ContainerNavigation>
       <Stack.Navigator initialRouteName="splash">
+        <Stack.Screen
+          name="home"
+          component={TabNavigator}
+          options={{
+            title: '',
+            headerTransparent: true,
+            headerShown: false,
+            animation: 'none',
+          }}
+        />
+
+        <Stack.Screen
+          name="profile"
+          component={Profile}
+          options={{
+            title: 'Perfil',
+            headerTransparent: true,
+            headerShown: false,
+          }}
+        />
+
         <Stack.Screen
           name="login"
           component={Login}
@@ -55,52 +145,14 @@ export function Routes() {
           }}
         />
         <Stack.Screen
-          name="profile"
-          component={Profile}
-          options={{
-            title: '',
-            headerTransparent: true,
-          }}
-        />
-        <Stack.Screen
-          name="club"
-          component={Club}
-          options={{
-            title: '',
-            headerTransparent: true,
-            headerTintColor: 'white',
-          }}
-        />
-        <Stack.Screen
           name="registerPromotion"
           component={RegisterPromotion}
           options={{
             title: '',
-            // headerShown: false,
-            headerTransparent: true,
-          }}
-        />
-        <Stack.Screen
-          name="feed"
-          component={Feed}
-          options={{
-            title: '',
-            headerShown: false,
             headerTransparent: true,
           }}
         />
       </Stack.Navigator>
     </ContainerNavigation>
-  );
-}
-export function TabNavigator() {
-  return (
-    <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen name="feed" component={Feed} />
-        <Tab.Screen name="club" component={Club} />
-        <Tab.Screen name="profile" component={Profile} />
-      </Tab.Navigator>
-    </NavigationContainer>
   );
 }

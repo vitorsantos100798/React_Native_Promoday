@@ -43,7 +43,7 @@ function Login({navigation}: NavigateScreenProps, ref: any) {
     navigation.navigate('signup');
   };
   const navigationoFeed = () => {
-    navigation.navigate('feed');
+    navigation.navigate('home');
   };
   const validationSchema = Yup.object({
     city: Yup.string().required('Campo obrigatório'),

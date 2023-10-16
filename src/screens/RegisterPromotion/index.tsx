@@ -145,12 +145,7 @@ const RegisterPromotion = ({navigation}: NavigateScreenProps, ref: any) => {
   };
 
   const navigateFeed = () => {
-    navigation.dispatch(
-      CommonActions.reset({
-        index: 0,
-        routes: [{name: 'feed'}],
-      }),
-    );
+    navigation.navigate('feed');
   };
 
   return (

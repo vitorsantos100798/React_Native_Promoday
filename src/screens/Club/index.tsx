@@ -8,7 +8,6 @@ import {
   Share,
   ActivityIndicator,
 } from 'react-native';
-import AppBar from '../../components/AppBar';
 import {styles} from './styles';
 import {getCupons} from '../../services/getCupons';
 import {Cupon} from '../../types/Cupon';
@@ -115,7 +114,6 @@ export const Club = () => {
           );
         }}
       />
-      <AppBar club={true} />
     </>
   );
 };

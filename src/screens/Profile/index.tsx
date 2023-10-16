@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-
 import {NavigateScreenProps} from '../../types/NavigateScreenProps.ts';
 import {
   Text,
@@ -14,10 +13,8 @@ import {CameraOptions, launchCamera} from 'react-native-image-picker';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {photoProfileService} from '../../services/photoProfile';
 import {getInfoUser} from '../../services/getInfoUser';
-
 import Toast from 'react-native-toast-message';
 import {typeInfoUser} from '../../types/typeInfoUser';
-import AppBar from '../../components/AppBar/index';
 import {useAuth} from '../../hooks/useAuth';
 
 const Profile = ({navigation}: NavigateScreenProps, ref: any) => {
@@ -146,7 +143,6 @@ const Profile = ({navigation}: NavigateScreenProps, ref: any) => {
         </TouchableOpacity>
       </View>
       <Toast ref={ref} />
-      {/* <AppBar style={{marginTop: 100}} club={true} /> */}
     </View>
   );
 };

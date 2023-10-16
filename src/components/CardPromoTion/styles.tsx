@@ -124,9 +124,10 @@ const styles = StyleSheet.create({
   },
   data: {
     fontFamily: 'Poppins-SemiBold',
-    fontSize: 12,
+    fontSize: 10,
     marginTop: 3,
-    color: '#000000dd',
+    marginLeft: 8,
+    color: 'grey',
   },
 });
 

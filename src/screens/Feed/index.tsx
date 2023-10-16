@@ -10,8 +10,6 @@ import {
   ActivityIndicator,
 } from 'react-native';
 import {CardPromotion} from '../../components/CardPromoTion';
-import AppBar from '../../components/AppBar';
-import {TabNavigator} from '../../routes/stack/index';
 import {styles} from './styles';
 import {CleanModal} from '../../components/Modal';
 import {ScrollCity} from '../../components/ScrollCity';
@@ -21,7 +19,6 @@ import {CitiesObj} from '../../types/cityObj';
 import {getPromotionByCity} from '../../services/getPromotionByCity';
 import {typeCardPromotion} from '../../types/typeCardPromotion';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {NavigationContainer} from '@react-navigation/native';
 
 function Feed({navigation}: NavigateScreenProps) {
   const [modalVisible, setModalVisible] = useState(false);
@@ -150,7 +147,6 @@ function Feed({navigation}: NavigateScreenProps) {
           <Text style={styles.textDivulgue}>DIVULGUE UMA PROMOÇÃO</Text>
         </TouchableOpacity>
       </View>
-      <AppBar feed={true} />
 
       <CleanModal height={'50%'} isVisible={modalVisible}>
         <TouchableOpacity onPress={toggleModal} style={styles.closeModal}>
