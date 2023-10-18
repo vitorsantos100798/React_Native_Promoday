@@ -29,7 +29,7 @@ export function TabNavigator() {
           width: '100%',
           height: '7%',
           borderTopWidth: 0.5,
-          borderTopColor: 'grey',
+          borderTopColor: '#9e9e9e',
         },
         tabBarActiveTintColor: 'grey',
       })}>

@@ -25,6 +25,7 @@ import {CleanModal} from '../../components/Modal';
 import {ScrollCity} from '../../components/ScrollCity';
 import {getCities} from '../../services/getCities';
 import {CitiesObj} from '../../types/cityObj.js';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
 export const SignUp = forwardRef(({navigation}: NavigateScreenProps, ref) => {
   const [loading, setLoading] = useState(false);
@@ -131,9 +132,11 @@ export const SignUp = forwardRef(({navigation}: NavigateScreenProps, ref) => {
     },
   });
   return (
-    <KeyboardAvoidingView
-      style={styles.container}
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+    <KeyboardAwareScrollView
+      style={{flex: 1}}
+      contentContainerStyle={{flexGrow: 1}}
+      enableOnAndroid={true}
+      extraScrollHeight={Platform.select({android: 150})}>
       <View style={styles.logoContainer}>
         <Image
           source={require('../../assets/splash.png')}
@@ -229,6 +232,6 @@ export const SignUp = forwardRef(({navigation}: NavigateScreenProps, ref) => {
       </CleanModal>
 
       <Toast ref={ref} />
-    </KeyboardAvoidingView>
+    </KeyboardAwareScrollView>
   );
 });
