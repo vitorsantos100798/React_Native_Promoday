@@ -10,7 +10,7 @@ import {
   BackHandler,
   ActivityIndicator,
 } from 'react-native';
-import {styles} from './styles';
+import styles from './styles';
 import {Input} from '../../components/input/input';
 import {useFocusEffect} from '@react-navigation/native';
 import {useAuth} from '../../hooks/useAuth';

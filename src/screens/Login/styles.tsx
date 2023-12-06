@@ -1,13 +1,13 @@
 import {StyleSheet} from 'react-native';
 
-export const styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'white',
   },
   logoContainer: {
     alignItems: 'center',
-    marginTop: '20%',
+    marginTop: '10%',
   },
   logo: {
     width: 200,
@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
   },
   titleContainer: {
     alignItems: 'center',
-    marginTop: 40,
+    marginTop: '5%',
   },
   title: {
     fontFamily: 'Poppins-Medium',
@@ -25,12 +25,12 @@ export const styles = StyleSheet.create({
   buttonContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 40,
+    marginTop: '5%',
   },
   button: {
     backgroundColor: '#DB3026',
     height: 60,
-    width: 246,
+    width: '80%',
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 50,
@@ -43,10 +43,12 @@ export const styles = StyleSheet.create({
   },
   signupContainer: {
     alignItems: 'center',
-    marginTop: 20,
+    margin: '5%',
   },
   signupText: {
     fontFamily: 'Poppins-Bold',
     color: '#00000090',
   },
 });
+
+export default styles;

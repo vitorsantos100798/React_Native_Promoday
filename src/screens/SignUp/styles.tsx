@@ -4,28 +4,32 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'white',
+    justifyContent: 'center',
+    padding: 10,
   },
   logoContainer: {
+    flex: 1,
+    justifyContent: 'center',
     alignItems: 'center',
-    marginTop: '10%',
   },
   logo: {
-    width: 200,
-    height: 200,
+    width: '70%',
+    aspectRatio: 1,
+    maxWidth: '100%',
   },
   titleContainer: {
+    marginTop: '5%',
     alignItems: 'center',
-    marginTop: 40,
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   title: {
     fontFamily: 'Poppins-Medium',
     color: '#DB3026',
     fontSize: 20,
-  },
-  buttonContainer: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: 40,
   },
   button: {
     backgroundColor: '#DB3026',
@@ -42,8 +46,9 @@ export const styles = StyleSheet.create({
     letterSpacing: 1,
   },
   signupContainer: {
+    display: 'flex',
     alignItems: 'center',
-    marginTop: 20,
+    margin: 15,
   },
   signupText: {
     fontFamily: 'Poppins-Bold',
@@ -52,9 +57,7 @@ export const styles = StyleSheet.create({
   signupTextIntern: {
     color: '#DB3026',
   },
-  toast: {
-    marginTop: 30,
-  },
+
   closeModal: {
     width: '100%',
     display: 'flex',
@@ -89,5 +92,9 @@ export const styles = StyleSheet.create({
     height: 18,
     width: 18,
     tintColor: '#DB3026',
+  },
+  buttonContainer: {
+    display: 'flex',
+    alignItems: 'center',
   },
 });

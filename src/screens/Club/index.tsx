@@ -50,14 +50,6 @@ export const Club = () => {
     });
   };
 
-  if (loading) {
-    return (
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-        <ActivityIndicator size="large" color="#DB3026" />
-      </View>
-    );
-  }
-
   return (
     <>
       <View style={styles.containerHeader}>
@@ -70,50 +62,57 @@ export const Club = () => {
           source={require('../../assets/clubStamp.png')}
         />
       </View>
-      <FlatList
-        data={cupons}
-        keyExtractor={item => item.codigo}
-        renderItem={({item}) => {
-          return (
-            <View style={styles.container}>
-              <View style={styles.containerCard}>
-                <View style={styles.containerImage}>
-                  <Image
-                    source={{uri: item.image}}
-                    style={styles.stylesImage}
-                  />
-                </View>
-                <View style={{width: '100%', height: '100%', marginTop: '10%'}}>
-                  <Text style={styles.text}>{item.nome}</Text>
-                  <Text style={styles.text}>{item.loja}</Text>
-                  <Text style={styles.textCode}>
-                    <Text style={styles.text}>Código:</Text> {item.codigo}
-                    <TouchableOpacity
-                      onPress={() =>
-                        handleShareCode(
-                          item.codigo,
-                          item.loja,
-                          item.nome,
-                          item.image,
-                        )
-                      }>
-                      <Image
-                        style={{
-                          marginLeft: 10,
-                          height: 18,
-                          width: 18,
-                          tintColor: '#0000007b',
-                        }}
-                        source={require('../../assets/IconShare.png')}
-                      />
-                    </TouchableOpacity>
-                  </Text>
+      {loading ? (
+        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+          <ActivityIndicator size="large" color="#DB3026" />
+        </View>
+      ) : (
+        <FlatList
+          data={cupons}
+          keyExtractor={item => item.codigo}
+          renderItem={({item}) => {
+            return (
+              <View style={styles.container}>
+                <View style={styles.containerCard}>
+                  <View style={styles.containerImage}>
+                    <Image
+                      source={{uri: item.image}}
+                      style={styles.stylesImage}
+                    />
+                  </View>
+                  <View
+                    style={{width: '100%', height: '100%', marginTop: '10%'}}>
+                    <Text style={styles.text}>{item.nome}</Text>
+                    <Text style={styles.text}>{item.loja}</Text>
+                    <Text style={styles.textCode}>
+                      <Text style={styles.text}>Código:</Text> {item.codigo}
+                      <TouchableOpacity
+                        onPress={() =>
+                          handleShareCode(
+                            item.codigo,
+                            item.loja,
+                            item.nome,
+                            item.image,
+                          )
+                        }>
+                        <Image
+                          style={{
+                            marginLeft: 10,
+                            height: 18,
+                            width: 18,
+                            tintColor: '#0000007b',
+                          }}
+                          source={require('../../assets/IconShare.png')}
+                        />
+                      </TouchableOpacity>
+                    </Text>
+                  </View>
                 </View>
               </View>
-            </View>
-          );
-        }}
-      />
+            );
+          }}
+        />
+      )}
     </>
   );
 };

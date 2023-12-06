@@ -132,11 +132,7 @@ export const SignUp = forwardRef(({navigation}: NavigateScreenProps, ref) => {
     },
   });
   return (
-    <KeyboardAwareScrollView
-      style={{flex: 1}}
-      contentContainerStyle={{flexGrow: 1}}
-      enableOnAndroid={true}
-      extraScrollHeight={Platform.select({android: 150})}>
+    <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
       <View style={styles.logoContainer}>
         <Image
           source={require('../../assets/splash.png')}
@@ -232,6 +228,6 @@ export const SignUp = forwardRef(({navigation}: NavigateScreenProps, ref) => {
       </CleanModal>
 
       <Toast ref={ref} />
-    </KeyboardAwareScrollView>
+    </KeyboardAvoidingView>
   );
 });
