@@ -93,9 +93,9 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.promoday"
+    namespace"com.ofertasmart"
     defaultConfig {
-        applicationId "com.promoday"
+        applicationId "com.ofertasmart"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

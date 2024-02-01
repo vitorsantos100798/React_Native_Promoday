@@ -1,4 +1,4 @@
-package com.promoday;
+package com.ofertasmart;
 
 import android.app.Application;
 import com.facebook.react.PackageList;
